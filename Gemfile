@@ -7,7 +7,10 @@ gem 'rails', '3.2.13'
 
 
 gem 'mysql2'
-#gem 'uglifier'
+
+group :assets do
+  gem 'uglifier'
+end 
 
 	#gem 'sqlite3-ruby', '1.3.3', :require => 'sqlite3'
 
