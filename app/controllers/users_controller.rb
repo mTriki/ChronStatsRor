@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def test
+   
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
