@@ -10,6 +10,7 @@ gem 'mysql2'
 
 group :assets do
   gem 'uglifier'
+  gem 'therubyracer'
 end 
 
 	#gem 'sqlite3-ruby', '1.3.3', :require => 'sqlite3'
