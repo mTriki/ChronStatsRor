@@ -1,4 +1,13 @@
 FirstApp::Application.routes.draw do
+  resources :championnats
+
+
+  resources :saisons
+
+
+  resources :clubs
+
+
   resources :microposts
 
 
