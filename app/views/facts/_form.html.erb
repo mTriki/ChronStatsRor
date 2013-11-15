@@ -10,18 +10,18 @@
       </ul>
     </div>
   <% end %>
-
+<%= debug(@fact) %>
   <div class="field">
     <%= f.label :time %><br />
-    <%= f.time_select :time %>
+    <%= time_select(:fact,:time) %>
   </div>
   <div class="field">
     <%= f.label :match_id %><br />
-    <%= f.number_field :match_id %>
+    <%= number_field(:fact, :match_id) %>
   </div>
   <div class="field">
     <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= text_field(:fact, :type) %>
   </div>
   <div class="actions">
     <%= f.submit %>

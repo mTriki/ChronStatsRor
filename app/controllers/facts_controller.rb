@@ -2,7 +2,8 @@ class FactsController < ApplicationController
   # GET /facts
   # GET /facts.json
   def index
-    @facts = Fact.all
+    @facts = fact_type.all
+    @title = fact_type
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +25,8 @@ class FactsController < ApplicationController
   # GET /facts/new
   # GET /facts/new.json
   def new
-    @fact = Fact.new
+    #@fact_type = fact_type
+    @fact = fact_type.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,14 @@ class FactsController < ApplicationController
 
   # GET /facts/1/edit
   def edit
-    @fact = Fact.find(params[:id])
+    @fact = fact_type.find(params[:id])
   end
 
   # POST /facts
   # POST /facts.json
   def create
-    @fact = Fact.new(params[:fact])
+
+    @fact = fact_type.new(params[:fact])
 
     respond_to do |format|
       if @fact.save
@@ -79,5 +82,10 @@ class FactsController < ApplicationController
       format.html { redirect_to facts_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def fact_type
+    params[:type].constantize
   end
 end

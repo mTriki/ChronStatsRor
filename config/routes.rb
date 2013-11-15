@@ -1,7 +1,4 @@
 FirstApp::Application.routes.draw do
-  resources :facts
-
-
   resources :matches
 
 
@@ -31,8 +28,13 @@ FirstApp::Application.routes.draw do
 
   resources :users
 
+  resources :facts, :type => 'Fact', :controller => 'facts'
+  resources :goals, :type => 'Goal', :controller => 'facts'
+  resources :cards, :type => 'Card', :controller => 'facts'
+    #resources :goals, :type => 'Goal'
   # Sous-class de fact
-  #resources :goals,        :controller => 'fact', :type => Fact::Goal.name 
+  #resources :facts, :controller => 'fact', :type => "Fact"
+  #resources :goals, 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
