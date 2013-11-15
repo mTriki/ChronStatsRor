@@ -1,11 +1,29 @@
 FirstApp::Application.routes.draw do
-  resources :championnats
+  resources :facts
 
 
-  resources :saisons
+  resources :matches
+
+
+  resources :gyms
+
+
+  resources :members
+
+
+  resources :championships
+
+
+  resources :seasons
 
 
   resources :clubs
+
+
+  resources :federations
+
+
+  resources :teams
 
 
   resources :microposts
@@ -13,6 +31,8 @@ FirstApp::Application.routes.draw do
 
   resources :users
 
+  # Sous-class de fact
+  #resources :goals,        :controller => 'fact', :type => Fact::Goal.name 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
