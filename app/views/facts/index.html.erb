@@ -1,0 +1,27 @@
+<h1>Listing facts</h1>
+
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Match</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @facts.each do |fact| %>
+  <tr>
+    <td><%= fact.time %></td>
+    <td><%= fact.match_id %></td>
+    <td><%= fact.type %></td>
+    <td><%= link_to 'Show', fact %></td>
+    <td><%= link_to 'Edit', edit_fact_path(fact) %></td>
+    <td><%= link_to 'Destroy', fact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fact', new_fact_path %>

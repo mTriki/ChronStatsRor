@@ -1,0 +1,37 @@
+<%= form_for(@gym) do |f| %>
+  <% if @gym.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gym.errors.count, "error") %> prohibited this gym from being saved:</h2>
+
+      <ul>
+      <% @gym.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :adress %><br />
+    <%= f.text_field :adress %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.number_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.number_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :federation_id %><br />
+    <%= f.number_field :federation_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
