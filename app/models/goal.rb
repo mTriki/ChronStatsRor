@@ -1,0 +1,2 @@
+class Goal < Fact
+end

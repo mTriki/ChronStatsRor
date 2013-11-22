@@ -1,4 +1,7 @@
 FirstApp::Application.routes.draw do
+  resources :participants
+
+
   resources :matches
 
 

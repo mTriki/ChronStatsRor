@@ -1,0 +1,37 @@
+<h1>Listing participants</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Firstname</th>
+    <th>Birthday</th>
+    <th>Phone</th>
+    <th>Sexe</th>
+    <th>Type</th>
+    <th>Team</th>
+    <th>Match</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @participants.each do |participant| %>
+  <tr>
+    <td><%= participant.name %></td>
+    <td><%= participant.firstname %></td>
+    <td><%= participant.birthday %></td>
+    <td><%= participant.phone %></td>
+    <td><%= participant.sexe %></td>
+    <td><%= participant.type %></td>
+    <td><%= participant.team %></td>
+    <td><%= participant.match %></td>
+    <td><%= link_to 'Show', participant %></td>
+    <td><%= link_to 'Edit', edit_participant_path(participant) %></td>
+    <td><%= link_to 'Destroy', participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Participant', new_participant_path %>
