@@ -37,11 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :team %><br />
-    <%= f.text_field :team %>
-  </div>
-  <div class="field">
-    <%= f.label :match %><br />
-    <%= f.text_field :match %>
+    <%= collection_select(:team, :team_id, Team.all, :id , :name, {}, {:multiple => true}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
