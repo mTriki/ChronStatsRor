@@ -1,5 +1,5 @@
 class Participant < ActiveRecord::Base
-  belongs_to :team
-  belongs_to :match
+  has_and_belongs_to_many :team
+  has_and_belongs_to_many :match
   attr_accessible :birthday, :firstname, :name, :phone, :sexe, :type
 end
