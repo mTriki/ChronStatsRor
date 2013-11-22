@@ -25,19 +25,19 @@
   </div>
   <div class="field">
     <%= f.label :championship_id %><br />
-    <%= collection_select(:championship, :championship_id, Championship.all, :id , :name) %>
+    <%= collection_select(:match, :championship_id, Championship.all, :id , :name) %>
   </div>
   <div class="field">
     <%= f.label :gym_id %><br />
-    <%= collection_select(:gym, :gym_id, Gym.all, :id , :name) %>
+    <%= collection_select(:match, :gym_id, Gym.all, :id , :name) %>
   </div>
   <div class="field">
     <%= f.label :team1_id %><br />
-    <%= collection_select(:team, :team_id, Team.all, :id , :name) %>
+    <%= collection_select(:match, :team_id, Team.all, :id , :name) %>
   </div>
   <div class="field">
     <%= f.label :team2_id %><br />
-    <%= collection_select(:team, :team_id, Team.all, :id , :name) %>
+    <%= collection_select(:match, :team_id, Team.all, :id , :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

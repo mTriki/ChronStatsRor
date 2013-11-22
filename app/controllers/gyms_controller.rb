@@ -57,7 +57,7 @@ class GymsController < ApplicationController
   # PUT /gyms/1.json
   def update
     @gym = Gym.find(params[:id])
-
+    
     respond_to do |format|
       if @gym.update_attributes(params[:gym])
         format.html { redirect_to @gym, notice: 'Gym was successfully updated.' }

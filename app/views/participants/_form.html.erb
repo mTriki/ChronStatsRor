@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :team %><br />
-    <%= collection_select(:team, :team_id, Team.all, :id , :name, {}, {:multiple => true}) %>
+    <%= collection_select(:participant, :team_id, Team.all, :id , :name, {}, {:multiple => true}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
