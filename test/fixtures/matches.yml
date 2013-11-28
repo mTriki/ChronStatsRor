@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2013-11-28 23:10:34
+  homeScore: 1
+  awayScore: 1
+  championship_id: 
+  gym_id: 
+  team_id1_id: 
+  team_id2_id: 
+
+two:
+  date: 2013-11-28 23:10:34
+  homeScore: 1
+  awayScore: 1
+  championship_id: 
+  gym_id: 
+  team_id1_id: 
+  team_id2_id: 

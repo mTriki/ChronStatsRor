@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  firstname: MyString
+  birthday: 2013-11-28
+  phone: MyString
+  sexe: false
+  type: 
+  noDossard: 1
+  no_license: 1
+  dateQualification: 2013-11-28
+
+two:
+  name: 
+  firstname: MyString
+  birthday: 2013-11-28
+  phone: MyString
+  sexe: false
+  type: 
+  noDossard: 1
+  no_license: 1
+  dateQualification: 2013-11-28
