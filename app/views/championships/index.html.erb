@@ -1,27 +1,31 @@
 <h1>Listing championships</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Season</th>
-    <th>Federation</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Federation</th>
+      <th>Season</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<% @championships.each do |championship| %>
-  <tr>
-    <td><%= championship.name %></td>
-    <td><%= championship.season_id %></td>
-    <td><%= championship.federation_id %></td>
-    <td><%= link_to 'Show', championship %></td>
-    <td><%= link_to 'Edit', edit_championship_path(championship) %></td>
-    <td><%= link_to 'Destroy', championship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @championships.each do |championship| %>
+      <tr>
+        <td><%= championship.name %></td>
+        <td><%= championship.federation.name %></td>
+        <td><%= championship.season.name %></td>
+        <td><%= link_to 'Show', championship %></td>
+        <td><%= link_to 'Edit', edit_championship_path(championship) %></td>
+        <td><%= link_to 'Destroy', championship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Championship', new_championship_path %>

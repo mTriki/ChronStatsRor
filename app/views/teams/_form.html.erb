@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :home_color %><br />
-    <%= f.text_field :home_color %>
+    <%= f.label :homeColor %><br>
+    <%= f.text_field :homeColor %>
   </div>
   <div class="field">
-    <%= f.label :away_color %><br />
-    <%= f.text_field :away_color %>
+    <%= f.label :awayColor %><br>
+    <%= f.text_field :awayColor %>
+  </div>
+  <div class="field">
+    <%= f.label :club_id %><br>
+    <%= collection_select(:team, :club_id, Club.all, :id , :name)%>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,83 +1,58 @@
 class ChampionshipsController < ApplicationController
+  before_action :set_championship, only: [:show, :edit, :update, :destroy]
+
   # GET /championships
-  # GET /championships.json
   def index
     @championships = Championship.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @championships }
-    end
   end
 
   # GET /championships/1
-  # GET /championships/1.json
   def show
-    @championship = Championship.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @championship }
-    end
   end
 
   # GET /championships/new
-  # GET /championships/new.json
   def new
     @championship = Championship.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @championship }
-    end
   end
 
   # GET /championships/1/edit
   def edit
-    @championship = Championship.find(params[:id])
   end
 
   # POST /championships
-  # POST /championships.json
   def create
-    @championship = Championship.new(params[:championship])
+    @championship = Championship.new(championship_params)
 
-    respond_to do |format|
-      if @championship.save
-        format.html { redirect_to @championship, notice: 'Championship was successfully created.' }
-        format.json { render json: @championship, status: :created, location: @championship }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @championship.errors, status: :unprocessable_entity }
-      end
+    if @championship.save
+      redirect_to @championship, notice: 'Championship was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /championships/1
-  # PUT /championships/1.json
+  # PATCH/PUT /championships/1
   def update
-    @championship = Championship.find(params[:id])
-
-    respond_to do |format|
-      if @championship.update_attributes(params[:championship])
-        format.html { redirect_to @championship, notice: 'Championship was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @championship.errors, status: :unprocessable_entity }
-      end
+    if @championship.update(championship_params)
+      redirect_to @championship, notice: 'Championship was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /championships/1
-  # DELETE /championships/1.json
   def destroy
-    @championship = Championship.find(params[:id])
     @championship.destroy
-
-    respond_to do |format|
-      format.html { redirect_to championships_url }
-      format.json { head :no_content }
-    end
+    redirect_to championships_url, notice: 'Championship was successfully destroyed.'
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_championship
+      @championship = Championship.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def championship_params
+      params.require(:championship).permit(:name, :federation_id, :season_id)
+    end
 end

@@ -1,40 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @member.name %>
 </p>
 
 <p>
-  <b>Firstname:</b>
+  <strong>Firstname:</strong>
   <%= @member.firstname %>
 </p>
 
 <p>
-  <b>Login:</b>
+  <strong>Login:</strong>
   <%= @member.login %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <strong>Phone:</strong>
   <%= @member.phone %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <strong>Email:</strong>
   <%= @member.email %>
 </p>
 
 <p>
-  <b>Password:</b>
+  <strong>Password:</strong>
   <%= @member.password %>
 </p>
 
 <p>
-  <b>Federation:</b>
-  <%= @member.federation_id %>
+  <strong>Federation:</strong>
+  <%= @member.federation %>
 </p>
-
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>

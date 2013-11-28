@@ -1,20 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @championship.name %>
 </p>
 
 <p>
-  <b>Season:</b>
-  <%= @championship.season_id %>
+  <strong>Federation:</strong>
+  <%= @championship.federation %>
 </p>
 
 <p>
-  <b>Federation:</b>
-  <%= @championship.federation_id %>
+  <strong>Season:</strong>
+  <%= @championship.season %>
 </p>
-
 
 <%= link_to 'Edit', edit_championship_path(@championship) %> |
 <%= link_to 'Back', championships_path %>

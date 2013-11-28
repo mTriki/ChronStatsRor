@@ -1,83 +1,58 @@
 class FederationsController < ApplicationController
+  before_action :set_federation, only: [:show, :edit, :update, :destroy]
+
   # GET /federations
-  # GET /federations.json
   def index
     @federations = Federation.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @federations }
-    end
   end
 
   # GET /federations/1
-  # GET /federations/1.json
   def show
-    @federation = Federation.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @federation }
-    end
   end
 
   # GET /federations/new
-  # GET /federations/new.json
   def new
     @federation = Federation.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @federation }
-    end
   end
 
   # GET /federations/1/edit
   def edit
-    @federation = Federation.find(params[:id])
   end
 
   # POST /federations
-  # POST /federations.json
   def create
-    @federation = Federation.new(params[:federation])
+    @federation = Federation.new(federation_params)
 
-    respond_to do |format|
-      if @federation.save
-        format.html { redirect_to @federation, notice: 'Federation was successfully created.' }
-        format.json { render json: @federation, status: :created, location: @federation }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @federation.errors, status: :unprocessable_entity }
-      end
+    if @federation.save
+      redirect_to @federation, notice: 'Federation was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /federations/1
-  # PUT /federations/1.json
+  # PATCH/PUT /federations/1
   def update
-    @federation = Federation.find(params[:id])
-
-    respond_to do |format|
-      if @federation.update_attributes(params[:federation])
-        format.html { redirect_to @federation, notice: 'Federation was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @federation.errors, status: :unprocessable_entity }
-      end
+    if @federation.update(federation_params)
+      redirect_to @federation, notice: 'Federation was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /federations/1
-  # DELETE /federations/1.json
   def destroy
-    @federation = Federation.find(params[:id])
     @federation.destroy
-
-    respond_to do |format|
-      format.html { redirect_to federations_url }
-      format.json { head :no_content }
-    end
+    redirect_to federations_url, notice: 'Federation was successfully destroyed.'
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_federation
+      @federation = Federation.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def federation_params
+      params.require(:federation).permit(:name, :logo)
+    end
 end

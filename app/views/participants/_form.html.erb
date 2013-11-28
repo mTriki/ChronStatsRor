@@ -12,32 +12,40 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :firstname %><br />
+    <%= f.label :firstname %><br>
     <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label :birthday %><br />
+    <%= f.label :birthday %><br>
     <%= f.date_select :birthday %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :sexe %><br />
-    <%= f.text_field :sexe %>
+    <%= f.label :sexe %><br>
+    <%= f.check_box :sexe %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
+    <%= f.label :type %><br>
     <%= f.text_field :type %>
   </div>
   <div class="field">
-    <%= f.label :team %><br />
-    <%= collection_select(:participant, :team_id, Team.all, :id , :name, {}, {:multiple => true}) %>
+    <%= f.label :noDossard %><br>
+    <%= f.number_field :noDossard %>
+  </div>
+  <div class="field">
+    <%= f.label :no_license %><br>
+    <%= f.number_field :no_license %>
+  </div>
+  <div class="field">
+    <%= f.label :dateQualification %><br>
+    <%= f.date_select :dateQualification %>
   </div>
   <div class="actions">
     <%= f.submit %>

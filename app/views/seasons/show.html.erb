@@ -1,20 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @season.name %>
 </p>
 
 <p>
-  <b>Begin:</b>
+  <strong>Begin:</strong>
   <%= @season.begin %>
 </p>
 
 <p>
-  <b>End:</b>
+  <strong>End:</strong>
   <%= @season.end %>
 </p>
-
 
 <%= link_to 'Edit', edit_season_path(@season) %> |
 <%= link_to 'Back', seasons_path %>

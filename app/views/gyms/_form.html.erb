@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :adress %><br />
+    <%= f.label :adress %><br>
     <%= f.text_field :adress %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br />
+    <%= f.label :zip %><br>
     <%= f.number_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
-    <%= f.number_field :city %>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :federation_id %><br />
-    <%= collection_select(:gym, :federation_id, Federation.all, :id , :name) %>
+    <%= f.label :federation_id %><br>
+    <%= collection_select(:gym, :federation_id, Federation.all, :id , :name)  %>
   </div>
   <div class="actions">
     <%= f.submit %>

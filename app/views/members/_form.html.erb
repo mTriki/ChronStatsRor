@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :firstname %><br />
+    <%= f.label :firstname %><br>
     <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label :login %><br />
+    <%= f.label :login %><br>
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password %><br>
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :federation_id %><br />
+    <%= f.label :federation_id %><br>
     <%= collection_select(:member, :federation_id, Federation.all, :id , :name) %>
   </div>
   <div class="actions">

@@ -1,45 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @participant.name %>
 </p>
 
 <p>
-  <b>Firstname:</b>
+  <strong>Firstname:</strong>
   <%= @participant.firstname %>
 </p>
 
 <p>
-  <b>Birthday:</b>
+  <strong>Birthday:</strong>
   <%= @participant.birthday %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <strong>Phone:</strong>
   <%= @participant.phone %>
 </p>
 
 <p>
-  <b>Sexe:</b>
+  <strong>Sexe:</strong>
   <%= @participant.sexe %>
 </p>
 
 <p>
-  <b>Type:</b>
+  <strong>Type:</strong>
   <%= @participant.type %>
 </p>
 
 <p>
-  <b>Team:</b>
-  <%= @participant.team %>
+  <strong>Nodossard:</strong>
+  <%= @participant.noDossard %>
 </p>
 
 <p>
-  <b>Match:</b>
-  <%= @participant.match %>
+  <strong>No license:</strong>
+  <%= @participant.no_license %>
 </p>
 
+<p>
+  <strong>Datequalification:</strong>
+  <%= @participant.dateQualification %>
+</p>
 
 <%= link_to 'Edit', edit_participant_path(@participant) %> |
 <%= link_to 'Back', participants_path %>

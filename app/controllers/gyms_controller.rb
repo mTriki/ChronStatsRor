@@ -1,83 +1,58 @@
 class GymsController < ApplicationController
+  before_action :set_gym, only: [:show, :edit, :update, :destroy]
+
   # GET /gyms
-  # GET /gyms.json
   def index
     @gyms = Gym.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @gyms }
-    end
   end
 
   # GET /gyms/1
-  # GET /gyms/1.json
   def show
-    @gym = Gym.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @gym }
-    end
   end
 
   # GET /gyms/new
-  # GET /gyms/new.json
   def new
     @gym = Gym.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @gym }
-    end
   end
 
   # GET /gyms/1/edit
   def edit
-    @gym = Gym.find(params[:id])
   end
 
   # POST /gyms
-  # POST /gyms.json
   def create
-    @gym = Gym.new(params[:gym])
+    @gym = Gym.new(gym_params)
 
-    respond_to do |format|
-      if @gym.save
-        format.html { redirect_to @gym, notice: 'Gym was successfully created.' }
-        format.json { render json: @gym, status: :created, location: @gym }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @gym.errors, status: :unprocessable_entity }
-      end
+    if @gym.save
+      redirect_to @gym, notice: 'Gym was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /gyms/1
-  # PUT /gyms/1.json
+  # PATCH/PUT /gyms/1
   def update
-    @gym = Gym.find(params[:id])
-    
-    respond_to do |format|
-      if @gym.update_attributes(params[:gym])
-        format.html { redirect_to @gym, notice: 'Gym was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @gym.errors, status: :unprocessable_entity }
-      end
+    if @gym.update(gym_params)
+      redirect_to @gym, notice: 'Gym was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /gyms/1
-  # DELETE /gyms/1.json
   def destroy
-    @gym = Gym.find(params[:id])
     @gym.destroy
-
-    respond_to do |format|
-      format.html { redirect_to gyms_url }
-      format.json { head :no_content }
-    end
+    redirect_to gyms_url, notice: 'Gym was successfully destroyed.'
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_gym
+      @gym = Gym.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def gym_params
+      params.require(:gym).permit(:name, :adress, :zip, :city, :federation_id)
+    end
 end

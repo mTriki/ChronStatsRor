@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
  
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,13 +9,11 @@ gem 'rails', '3.2.13'
 gem 'mysql2'
 
 # Necessaire pour utiliser Heroku
-group :assets do
   gem 'uglifier'
   gem 'therubyracer'
-end 
 
 group :development do
-  gem 'rspec-rails', '2.5.0'
+  gem 'rspec-rails'
 end
 
 group :test do

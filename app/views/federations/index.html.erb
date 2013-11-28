@@ -1,25 +1,29 @@
 <h1>Listing federations</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Logo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Logo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<% @federations.each do |federation| %>
-  <tr>
-    <td><%= federation.name %></td>
-    <td><%= federation.logo %></td>
-    <td><%= link_to 'Show', federation %></td>
-    <td><%= link_to 'Edit', edit_federation_path(federation) %></td>
-    <td><%= link_to 'Destroy', federation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @federations.each do |federation| %>
+      <tr>
+        <td><%= federation.name %></td>
+        <td><%= federation.logo %></td>
+        <td><%= link_to 'Show', federation %></td>
+        <td><%= link_to 'Edit', edit_federation_path(federation) %></td>
+        <td><%= link_to 'Destroy', federation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Federation', new_federation_path %>

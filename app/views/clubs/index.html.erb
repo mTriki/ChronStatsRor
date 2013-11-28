@@ -1,29 +1,33 @@
 <h1>Listing clubs</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Adress</th>
-    <th>Zip</th>
-    <th>City</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Adress</th>
+      <th>Zip</th>
+      <th>City</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<% @clubs.each do |club| %>
-  <tr>
-    <td><%= club.name %></td>
-    <td><%= club.adress %></td>
-    <td><%= club.zip %></td>
-    <td><%= club.city %></td>
-    <td><%= link_to 'Show', club %></td>
-    <td><%= link_to 'Edit', edit_club_path(club) %></td>
-    <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @clubs.each do |club| %>
+      <tr>
+        <td><%= club.name %></td>
+        <td><%= club.adress %></td>
+        <td><%= club.zip %></td>
+        <td><%= club.city %></td>
+        <td><%= link_to 'Show', club %></td>
+        <td><%= link_to 'Edit', edit_club_path(club) %></td>
+        <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Club', new_club_path %>

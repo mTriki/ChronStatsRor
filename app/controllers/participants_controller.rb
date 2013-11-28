@@ -1,83 +1,58 @@
 class ParticipantsController < ApplicationController
+  before_action :set_participant, only: [:show, :edit, :update, :destroy]
+
   # GET /participants
-  # GET /participants.json
   def index
     @participants = Participant.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @participants }
-    end
   end
 
   # GET /participants/1
-  # GET /participants/1.json
   def show
-    @participant = Participant.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @participant }
-    end
   end
 
   # GET /participants/new
-  # GET /participants/new.json
   def new
     @participant = Participant.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @participant }
-    end
   end
 
   # GET /participants/1/edit
   def edit
-    @participant = Participant.find(params[:id])
   end
 
   # POST /participants
-  # POST /participants.json
   def create
-    @participant = Participant.new(params[:participant])
+    @participant = Participant.new(participant_params)
 
-    respond_to do |format|
-      if @participant.save
-        format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
-        format.json { render json: @participant, status: :created, location: @participant }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
-      end
+    if @participant.save
+      redirect_to @participant, notice: 'Participant was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
-  # PUT /participants/1
-  # PUT /participants/1.json
+  # PATCH/PUT /participants/1
   def update
-    @participant = Participant.find(params[:id])
-
-    respond_to do |format|
-      if @participant.update_attributes(params[:participant])
-        format.html { redirect_to @participant, notice: 'Participant was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
-      end
+    if @participant.update(participant_params)
+      redirect_to @participant, notice: 'Participant was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /participants/1
-  # DELETE /participants/1.json
   def destroy
-    @participant = Participant.find(params[:id])
     @participant.destroy
-
-    respond_to do |format|
-      format.html { redirect_to participants_url }
-      format.json { head :no_content }
-    end
+    redirect_to participants_url, notice: 'Participant was successfully destroyed.'
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_participant
+      @participant = Participant.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def participant_params
+      params.require(:participant).permit(:name, :firstname, :birthday, :phone, :sexe, :type, :noDossard, :no_license, :dateQualification)
+    end
 end

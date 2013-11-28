@@ -12,32 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label :date %><br>
     <%= f.datetime_select :date %>
   </div>
   <div class="field">
-    <%= f.label :home_score %><br />
-    <%= f.number_field :home_score %>
+    <%= f.label :homeScore %><br>
+    <%= f.number_field :homeScore %>
   </div>
   <div class="field">
-    <%= f.label :host_score %><br />
-    <%= f.number_field :host_score %>
+    <%= f.label :awayScore %><br>
+    <%= f.number_field :awayScore %>
   </div>
   <div class="field">
-    <%= f.label :championship_id %><br />
+    <%= f.label :championship_id %><br>
     <%= collection_select(:match, :championship_id, Championship.all, :id , :name) %>
   </div>
   <div class="field">
-    <%= f.label :gym_id %><br />
+    <%= f.label :gym_id %><br>
     <%= collection_select(:match, :gym_id, Gym.all, :id , :name) %>
   </div>
   <div class="field">
-    <%= f.label :team1_id %><br />
-    <%= collection_select(:match, :team_id, Team.all, :id , :name) %>
+    <%= f.label :team_id1_id %><br>
+    <%= collection_select(:match, :team_id1_id, Team.all, :id , :name) %>
   </div>
   <div class="field">
-    <%= f.label :team2_id %><br />
-    <%= collection_select(:match, :team_id, Team.all, :id , :name) %>
+    <%= f.label :team_id2_id %><br>
+    <%= collection_select(:match, :team_id2_id, Team.all, :id , :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>
