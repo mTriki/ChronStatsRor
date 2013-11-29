@@ -11,15 +11,12 @@ gem 'mysql2'
 # Necessaire pour utiliser Heroku
   gem 'uglifier'
   gem 'therubyracer'
-
-group :development do
   gem 'rspec-rails'
-end
 
-group :test do
+
+
   gem 'rspec', '2.5.0'
   gem 'webrat', '0.7.1'
-end
 
 gem 'jquery-rails' 
 
