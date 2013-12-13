@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128230918) do
+ActiveRecord::Schema.define(version: 20131129222352) do
 
   create_table "championships", force: true do |t|
     t.string   "name"
@@ -143,6 +143,16 @@ ActiveRecord::Schema.define(version: 20131128230918) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "timekeepers", force: true do |t|
+    t.string   "login"
+    t.string   "password"
+    t.integer  "club_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timekeepers", ["club_id"], name: "index_timekeepers_on_club_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nom"

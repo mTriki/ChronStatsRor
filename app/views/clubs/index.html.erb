@@ -1,12 +1,12 @@
-<h1>Listing clubs</h1>
+<h1>Liste des clubs</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Adress</th>
-      <th>Zip</th>
-      <th>City</th>
+      <th>Nom</th>
+      <th>Adresss</th>
+      <th>NPA</th>
+      <th>Ville</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,9 +20,9 @@
         <td><%= club.adress %></td>
         <td><%= club.zip %></td>
         <td><%= club.city %></td>
-        <td><%= link_to 'Show', club %></td>
-        <td><%= link_to 'Edit', edit_club_path(club) %></td>
-        <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Afficher', club %></td>
+        <td><%= link_to 'Editer', edit_club_path(club) %></td>
+        <td><%= link_to 'Effacer', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Club', new_club_path %>
+<%= link_to '<button type="button" class="btn btn-primary">Ajouter un club</button>'.html_safe, new_club_path %>

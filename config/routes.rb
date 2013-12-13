@@ -1,4 +1,6 @@
 FirstApp::Application.routes.draw do
+  resources :timekeepers
+
   resources :participants
 
 
@@ -30,14 +32,13 @@ FirstApp::Application.routes.draw do
 
 
   resources :users
+  resources :timekeepers
 
   resources :facts, :type => 'Fact', :controller => 'facts'
   resources :goals, :type => 'Goal', :controller => 'facts'
   resources :cards, :type => 'Card', :controller => 'facts'
-    #resources :goals, :type => 'Goal'
-  # Sous-class de fact
-  #resources :facts, :controller => 'fact', :type => "Fact"
-  #resources :goals, 
+
+  root :to =>'teams#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -16,7 +16,7 @@ gem 'mysql2'
 
 
 
-  gem 'rspec', '2.5.0'
+  gem 'rspec'
   gem 'webrat', '0.7.1'
 
 gem 'jquery-rails' 
