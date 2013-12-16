@@ -1,4 +1,5 @@
 FirstApp::Application.routes.draw do
+  get "sessions/new"
   resources :timekeepers
 
   resources :participants
@@ -37,6 +38,11 @@ FirstApp::Application.routes.draw do
   resources :facts, :type => 'Fact', :controller => 'facts'
   resources :goals, :type => 'Goal', :controller => 'facts'
   resources :cards, :type => 'Card', :controller => 'facts'
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
+  get '/signin',     :to => 'sessions#new'
+  get '/signout',    :to => 'sessions#destroy'
 
   root :to =>'teams#index'
 
