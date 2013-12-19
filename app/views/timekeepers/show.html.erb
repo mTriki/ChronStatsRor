@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @timekeeper.login %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @timekeeper.password %>
+</p>
+
+<p>
+  <strong>Club:</strong>
+  <%= @timekeeper.club %>
+</p>
+
+<%= link_to 'Edit', edit_timekeeper_path(@timekeeper) %> |
+<%= link_to 'Back', timekeepers_path %>

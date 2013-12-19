@@ -1,0 +1,29 @@
+<%= form_for(@timekeeper) do |f| %>
+  <% if @timekeeper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timekeeper.errors.count, "error") %> prohibited this timekeeper from being saved:</h2>
+
+      <ul>
+      <% @timekeeper.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :login %><br>
+    <%= f.text_field :login %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>  
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :club_id %><br>
+    <%= collection_select(:team, :club_id, Club.all, :id , :name)%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
