@@ -24,6 +24,7 @@ class TimekeepersController < ApplicationController
     @timekeeper = Timekeeper.new(timekeeper_params)
 
     if @timekeeper.save
+      sign_in @timekeeper
       redirect_to @timekeeper, notice: 'Timekeeper was successfully created.'
     else
       render action: 'new'

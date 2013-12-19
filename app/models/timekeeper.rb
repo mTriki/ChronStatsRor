@@ -1,6 +1,6 @@
 class Timekeeper < ActiveRecord::Base
   belongs_to :club
-#attr_accessor :password
+
   attr_accessible :login, :password, :password_confirmation
 
 
@@ -13,26 +13,20 @@ class Timekeeper < ActiveRecord::Base
   validates :login,  	:presence => true,
                   		:length   => { :maximum => 50 }
 
-  before_save :encrypt_password
-
-  def has_password?(password)
-    encrypt_password == encrypt(password)
-  end
-
-  def self.authenticate(login,password)
+  def self.authenticate(login, password)
   	user = find_by_login(login)
   	return nil if user.nil?
-  	return user if user.has_password?(password)
+  	return user if user.password == encrypt(password)
   end
 
-  def encrypt(string)
-    Digest::SHA2.hexdigest(string)
+  def self.authenticate_with_encrypted_password(login, password)
+    user = find_by_login(login)
+    return nil if user.nil?
+    return user if user.password == password
   end
 
   private
-  	def encrypt_password 
-  		self.password = encrypt(password)
-  	end
-
-
+    def self.encrypt(string)
+      Digest::SHA2.hexdigest(string)
+    end
 end

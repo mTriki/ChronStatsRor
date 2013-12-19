@@ -4,13 +4,10 @@ class SessionsController < ApplicationController
   end
 
  def create
-
-    timekeeper = Timekeeper.authenticate(params[:session][:email],
+    timekeeper = Timekeeper.authenticate(params[:session][:login],
                              params[:session][:password])
     if timekeeper.nil?
-
       flash[:error] = "Combinaison Login/Mot de passe invalide."
-      @titre = "S'identifier"
       redirect_to "/signin"
     else
       sign_in timekeeper
@@ -19,6 +16,7 @@ class SessionsController < ApplicationController
   end	
 
   def destroy
-  	
+  	sign_out
+    redirect_to "/signin"
   end
 end

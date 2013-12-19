@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20131129222352) do
     t.time     "time"
     t.integer  "match_id"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "federations", force: true do |t|
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20131129222352) do
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "participants", force: true do |t|
@@ -136,14 +136,6 @@ ActiveRecord::Schema.define(version: 20131129222352) do
 
   add_index "teams", ["club_id"], name: "index_teams_on_club_id", using: :btree
 
-  create_table "tests", force: true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "timekeepers", force: true do |t|
     t.string   "login"
     t.string   "password"
@@ -157,8 +149,8 @@ ActiveRecord::Schema.define(version: 20131129222352) do
   create_table "users", force: true do |t|
     t.string   "nom"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
