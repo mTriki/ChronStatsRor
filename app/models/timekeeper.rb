@@ -13,10 +13,12 @@ class Timekeeper < ActiveRecord::Base
   validates :login,  	:presence => true,
                   		:length   => { :maximum => 50 }
 
+  before_save :encrypt_password
+
   def self.authenticate(login, password)
   	user = find_by_login(login)
   	return nil if user.nil?
-  	return user if user.password == encrypt(password)
+  	return user if user.password == user.encrypt(password)
   end
 
   def self.authenticate_with_encrypted_password(login, password)
@@ -25,9 +27,13 @@ class Timekeeper < ActiveRecord::Base
     return user if user.password == password
   end
 
+  def encrypt(string)
+    Digest::SHA2.hexdigest(string)
+  end
+
   private
-  
-    def self.encrypt(string)
-      Digest::SHA2.hexdigest(string)
+
+    def encrypt_password 
+      self.password = encrypt(password)
     end
 end
