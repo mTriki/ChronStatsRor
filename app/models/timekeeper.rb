@@ -26,6 +26,7 @@ class Timekeeper < ActiveRecord::Base
   end
 
   private
+  
     def self.encrypt(string)
       Digest::SHA2.hexdigest(string)
     end
