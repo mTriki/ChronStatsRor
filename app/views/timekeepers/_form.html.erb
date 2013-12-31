@@ -19,9 +19,13 @@
     <%= f.label :password %><br>  
     <%= f.password_field :password %>
   </div>
+    <div class="field">
+    <%= f.label :password_confirmation %><br>  
+    <%= f.password_field :password_confirmation %>
+  </div>
   <div class="field">
     <%= f.label :club_id %><br>
-    <%= collection_select(:team, :club_id, Club.all, :id , :name)%>
+    <%= collection_select(:timekeeper, :club_id, Club.all, :id , :name)%>
   </div>
   <div class="actions">
     <%= f.submit %>

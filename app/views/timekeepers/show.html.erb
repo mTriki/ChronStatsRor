@@ -6,13 +6,8 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @timekeeper.password %>
-</p>
-
-<p>
   <strong>Club:</strong>
-  <%= @timekeeper.club %>
+  <%= @timekeeper.club.name %>
 </p>
 
 <%= link_to 'Edit', edit_timekeeper_path(@timekeeper) %> |

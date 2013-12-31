@@ -21,6 +21,7 @@ class TimekeepersController < ApplicationController
 
   # POST /timekeepers
   def create
+    logger.debug "New post: #{timekeeper_params.inspect}"
     @timekeeper = Timekeeper.new(timekeeper_params)
 
     if @timekeeper.save
@@ -54,6 +55,6 @@ class TimekeepersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def timekeeper_params
-      params.require(:timekeeper).permit(:login, :password, :club_id)
+      params.require(:timekeeper).permit(:login, :password,:password_confirmation, :club_id)
     end
 end
