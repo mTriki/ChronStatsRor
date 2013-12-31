@@ -88,4 +88,8 @@ class FactsController < ApplicationController
   def fact_type
     params[:type].constantize
   end
+
+  def fact_params
+      params.require(:fact).permit(:login, :password,:password_confirmation, :club_id)
+    end
 end
