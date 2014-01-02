@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr"> 
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="description" content="Chron&Stats" />
+      <title>Chron&Stats</title>
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag "style", :media => 'screen' %>
+      <%= javascript_include_tag "application" %>
+      <%= javascript_include_tag "script" %>
+      <%= javascript_include_tag "jquery-1.10.2.min" %>
+  </head>
+   <body>
+    <!--start mainContainer-->
+    <div id="mainContainer">
+      <!--start header-->
+      <div id="header">
+        <div id="banner"><span>Chron&Stats</span> - Projet de groupe IL 2013</div>
+      </div>
+      <!--end header-->
+      <!--start content-->
+      <div id="outer">
+        <!-- start menu -->
+      <div id="menu">
+        <ul class="menu-first-level">
+          <li class="home-button">
+            <%= image_tag "home.jpg", :alt => "Accueil" %>
+          </li>
+          <% @championships.each do |championship| %>
+            <li>
+              <a href="#" id="<%= championship.name.delete(" ") %>"><%= championship.name %></a>
+            </li>
+          <% end %>
+        </ul>
+        <% @championships.each do |championship| %>
+          <ul class="menu-second-level" id="mnu_<%= championship.name.delete(" ") %>">
+            <li>
+              <a href="classement_<%= championship.name.delete(" ") %>.html">Classement</a>
+            </li>
+            <li>
+              <a href="mathc_<%= championship.name.delete(" ") %>.html">Matchs</a>
+            </li>
+            <li>
+              <a href="#" id="link_equipes_<%= championship.name.delete(" ") %>">Equipes</a>
+            </li>
+          </ul>
+          <ul class="menu-third-level" id="equipes_<%= championship.name.delete(" ") %>">
+            <% teams.each do |team| %>
+              <li>
+                <a href="#"><%= image_tag "#{team.name}.png", :alt => "Logo de l'équipe #{team.name}" %></a>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <!-- end menu -->
+      <div id="content">
+        <%= yield %>
+      </div>
+      <!--end content-->
+
+      <div id="footer">
+        Copyright 2013 Chron&Stats | <%= link_to "Se connecter", controller: "sessions", action: "new" %>
+      </div>  
+
+    </div>
+    <!--end mainContainer-->
+  </body>
+</html> 
+
