@@ -22,12 +22,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Chron-Stats</a>
+          <a class="navbar-brand" href="#">ChronStat</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Club", controller: "clubs", action: "index" %></li>
             <li><%= link_to "Championnat", controller: "championships", action: "index" %></li>
+            <li><%= link_to "Chronométreur", controller: "timekeepers", action: "index" %></li>
             <li><%= link_to "Equipes", controller: "teams", action: "index" %></li>
             <li><%= link_to "Federation", controller: "federations", action: "index" %></li>
             <li><%= link_to "Salle", controller: "gyms", action: "index" %></li>
@@ -45,6 +46,11 @@
               </ul>
              <li><%= link_to "Saison", controller: "seasons", action: "index" %></li>
             </li>
+             <% if signed_in? %>
+                <li><%= link_to "Déco.", signout_path %></li>
+              <% else %>
+                <li><%= link_to "S'identifier", signin_path %></li>
+              <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -63,15 +69,3 @@
 
     </div> <!-- /container -->
     		
-              
-<footer>
-  <nav class="round">
-    <ul>
-    <% if signed_in? %>
-        <li><%= link_to "Déconnexion", signout_path %></li>
-      <% else %>
-        <li><%= link_to "S'identifier", signin_path %></li>
-      <% end %>
-    </ul>
-  </nav>
-</footer>

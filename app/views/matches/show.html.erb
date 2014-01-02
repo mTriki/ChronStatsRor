@@ -17,22 +17,22 @@
 
 <p>
   <strong>Championship:</strong>
-  <%= @match.championship %>
+  <%= @match.championship.name %>
 </p>
 
 <p>
   <strong>Gym:</strong>
-  <%= @match.gym %>
+  <%= @match.gym.name %>
 </p>
 
 <p>
   <strong>Team id1:</strong>
-  <%= @match.team_id1 %>
+  <%= @match.team1.name %>
 </p>
 
 <p>
   <strong>Team id2:</strong>
-  <%= @match.team_id2 %>
+  <%= @match.team2.name %>
 </p>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |

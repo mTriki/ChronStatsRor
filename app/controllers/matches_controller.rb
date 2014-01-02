@@ -6,6 +6,11 @@ class MatchesController < ApplicationController
   # GET /matches
   def index
     @matches = Match.all
+
+    respond_to do |format|
+      format.html #
+      format.json { render json: @matches }
+    end
   end
 
   # GET /matches/1
@@ -24,12 +29,7 @@ class MatchesController < ApplicationController
   # POST /matches
   def create
     @match = Match.new(match_params)
-
-    if @match.save
-      redirect_to @match, notice: 'Match was successfully created.'
-    else
-      render action: 'new'
-    end
+    @match.save
   end
 
   # PATCH/PUT /matches/1
