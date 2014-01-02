@@ -1,5 +1,6 @@
 class FederationsController < ApplicationController
   before_action :set_federation, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate
 
   # GET /federations
   def index

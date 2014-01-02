@@ -1,5 +1,7 @@
 class GymsController < ApplicationController
   before_action :set_gym, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate
+
 
   # GET /gyms
   def index

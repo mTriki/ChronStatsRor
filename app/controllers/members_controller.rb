@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate
+
 
   # GET /members
   def index

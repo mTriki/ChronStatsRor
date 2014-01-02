@@ -1,4 +1,6 @@
 class FactsController < ApplicationController
+  before_filter :authenticate
+
   # GET /facts
   # GET /facts.json
   def index
@@ -14,12 +16,6 @@ class FactsController < ApplicationController
   # GET /facts/1
   # GET /facts/1.json
   def show
-    @fact = Fact.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @fact }
-    end
   end
 
   # GET /facts/new
@@ -36,14 +32,14 @@ class FactsController < ApplicationController
 
   # GET /facts/1/edit
   def edit
-    @fact = fact_type.find(params[:id])
+    @fact = fact_type.find(fact_params)
   end
 
   # POST /facts
   # POST /facts.json
   def create
 
-    @fact = fact_type.new(params[:fact])
+    @fact = fact_type.new(fact_params)
 
     respond_to do |format|
       if @fact.save
@@ -59,10 +55,10 @@ class FactsController < ApplicationController
   # PUT /facts/1
   # PUT /facts/1.json
   def update
-    @fact = Fact.find(params[:id])
+    @fact = Fact.find(fact_params)
 
     respond_to do |format|
-      if @fact.update_attributes(params[:fact])
+      if @fact.update_attributes(fact_params)
         format.html { redirect_to @fact, notice: 'Fact was successfully updated.' }
         format.json { head :no_content }
       else
@@ -75,7 +71,7 @@ class FactsController < ApplicationController
   # DELETE /facts/1
   # DELETE /facts/1.json
   def destroy
-    @fact = Fact.find(params[:id])
+    @fact = Fact.find(fact_params)
     @fact.destroy
 
     respond_to do |format|
@@ -90,6 +86,6 @@ class FactsController < ApplicationController
   end
 
   def fact_params
-      params.require(:fact).permit(:login, :password,:password_confirmation, :club_id)
+      params.require(:fact).permit(:time, :match_id,:type)
     end
 end

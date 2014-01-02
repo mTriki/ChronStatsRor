@@ -1,5 +1,6 @@
 class ChampionshipsController < ApplicationController
   before_action :set_championship, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate
 
   # GET /championships
   def index

@@ -1,6 +1,6 @@
 class TimekeepersController < ApplicationController
   before_action :set_timekeeper, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate
   # GET /timekeepers
   def index
     @timekeepers = Timekeeper.all
@@ -21,7 +21,6 @@ class TimekeepersController < ApplicationController
 
   # POST /timekeepers
   def create
-    logger.debug "New post: #{timekeeper_params.inspect}"
     @timekeeper = Timekeeper.new(timekeeper_params)
 
     if @timekeeper.save
