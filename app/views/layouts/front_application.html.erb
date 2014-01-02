@@ -29,39 +29,41 @@
           </li>
           <% @championships.each do |championship| %>
             <li>
-              <a href="#" id="<%= championship.name %>"><%= championship.name %></a>
+              <a href="#" id="<%= championship.name.delete(" ") %>"><%= championship.name %></a>
             </li>
           <% end %>
         </ul>
-        <ul class="menu-second-level" id="mnu_homme1">
-            <% @championships.each do |championship| %>
-            	<li>
-              		
-            	</li>
-                <li>
-	            	<a href="classement_homme1.html">Classement</a>
-	          	</li>
-	          	<li>
-	            	<a href="match_homme1.html">Matchs</a>
-	          	</li>
-	          	<li>
-	            	<a href="#" id="link_equipes_<%= championship.name %>">Equipes</a>
-	        	</li>
-          	<% end %>
-        </ul>
-        <ul class="menu-third-level" id="equipes_homme1">
-          <% teams.each do |team| %>
+        <% @championships.each do |championship| %>
+          <ul class="menu-second-level" id="mnu_<%= championship.name.delete(" ") %>">
             <li>
-              <a href="#"><%= image_tag "#{team.name}.png", :alt => "Logo de l'équipe #{team.name}" %></a>
+              <a href="classement_<%= championship.name.delete(" ") %>.html">Classement</a>
             </li>
-          <% end %>
-        </ul>
+            <li>
+              <a href="mathc_<%= championship.name.delete(" ") %>.html">Matchs</a>
+            </li>
+            <li>
+              <a href="#" id="link_equipes_<%= championship.name.delete(" ") %>">Equipes</a>
+            </li>
+          </ul>
+          <ul class="menu-third-level" id="equipes_<%= championship.name.delete(" ") %>">
+            <% teams.each do |team| %>
+              <li>
+                <a href="#"><%= image_tag "#{team.name}.png", :alt => "Logo de l'équipe #{team.name}" %></a>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
       <!-- end menu -->
       <div id="content">
         <%= yield %>
       </div>
       <!--end content-->
+
+      <div id="footer">
+        Copyright 2013 Chron&Stats | <%= link_to "Se connecter", controller: "sessions", action: "new" %>
+      </div>  
+
     </div>
     <!--end mainContainer-->
   </body>

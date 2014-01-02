@@ -1,14 +1,11 @@
 $(function() {
-
 	$("[id^='equipes_'] img").click(function(){
 		$(".activeTeam").removeClass("activeTeam");
 		$(this).addClass("activeTeam");
 	});
 
-
 	$(".menu-second-level").hide();
 	$(".menu-third-level").hide();
-	$(".info").hide();
 
 	$(".menu-first-level > li > a").click(function(){
 		$("li[id^='link_equipes']").removeClass("current");
