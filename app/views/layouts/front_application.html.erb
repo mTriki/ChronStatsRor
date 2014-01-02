@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr"> 
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="description" content="Chron&Stats" />
+      <title>Chron&Stats</title>
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag "style", :media => 'screen' %>
+      <%= javascript_include_tag "application" %>
+      <%= javascript_include_tag "script" %>
+      <%= javascript_include_tag "jquery-1.10.2.min" %>
+  </head>
+   <body>
+    <!--start mainContainer-->
+    <div id="mainContainer">
+      <!--start header-->
+      <div id="header">
+        <div id="banner"><span>Chron&Stats</span> - Projet de groupe IL 2013</div>
+      </div>
+      <!--end header-->
+      <!--start content-->
+      <div id="outer">
+        <!-- start menu -->
+      <div id="menu">
+        <ul class="menu-first-level">
+          <li class="home-button">
+            <%= image_tag "home.jpg", :alt => "Accueil" %>
+          </li>
+          <% @championships.each do |championship| %>
+            <li>
+              <a href="#" id="<%= championship.name %>"><%= championship.name %></a>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="menu-second-level" id="mnu_homme1">
+            <% @championships.each do |championship| %>
+            	<li>
+              		
+            	</li>
+                <li>
+	            	<a href="classement_homme1.html">Classement</a>
+	          	</li>
+	          	<li>
+	            	<a href="match_homme1.html">Matchs</a>
+	          	</li>
+	          	<li>
+	            	<a href="#" id="link_equipes_<%= championship.name %>">Equipes</a>
+	        	</li>
+          	<% end %>
+        </ul>
+        <ul class="menu-third-level" id="equipes_homme1">
+          <% teams.each do |team| %>
+            <li>
+              <a href="#"><%= image_tag "#{team.name}.png", :alt => "Logo de l'équipe #{team.name}" %></a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <!-- end menu -->
+      <div id="content">
+        <%= yield %>
+      </div>
+      <!--end content-->
+    </div>
+    <!--end mainContainer-->
+  </body>
+</html> 
+

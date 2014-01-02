@@ -1,6 +1,11 @@
 class ChampionshipsController < ApplicationController
   before_action :set_championship, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate
+  before_filter :authenticate, except: [:show_stats]
+  layout "front_application", only: [:show_stats]
+
+  def show_stats
+    @championships = Championship.all
+  end
 
   # GET /championships
   def index

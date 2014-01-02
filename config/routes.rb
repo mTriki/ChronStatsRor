@@ -44,7 +44,7 @@ FirstApp::Application.routes.draw do
   get '/signin',     :to => 'sessions#new'
   get '/signout',    :to => 'sessions#destroy'
 
-  root :to =>'teams#index'
+  root :to =>'championships#show_stats'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
