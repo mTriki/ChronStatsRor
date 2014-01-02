@@ -15,7 +15,7 @@
     <% @timekeepers.each do |timekeeper| %>
       <tr>
         <td><%= timekeeper.login %></td>
-        <td><%= timekeeper.club %></td>
+        <td><%= timekeeper.club.name %></td>
         <td><%= link_to 'Show', timekeeper %></td>
         <td><%= link_to 'Edit', edit_timekeeper_path(timekeeper) %></td>
         <td><%= link_to 'Destroy', timekeeper, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate
+  before_filter :authenticate, except: => :ranking
 
 
   # GET /teams
@@ -45,6 +45,11 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     redirect_to teams_url, notice: 'Team was successfully destroyed.'
+  end
+
+  # get /ranking/1
+  def ranking
+    @teams = Team.find(params[:id])
   end
 
   private
