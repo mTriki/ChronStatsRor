@@ -13,9 +13,7 @@ class SessionsController < ApplicationController
 
     if request.format.json?
       timekeeper = Timekeeper.authenticate(params[:login],params[:password])
-      logger.debug "fuck momo ===> #{params[:password]}"
     else
-
       timekeeper = Timekeeper.authenticate(params[:session][:login],
                                            params[:session][:password])
     end
@@ -24,8 +22,17 @@ class SessionsController < ApplicationController
       flash[:error] = "Combinaison Login/Mot de passe invalide."
       redirect_to "/signin"
     else
+
+      if request.format.json?
+        @test = sign_in timekeeper
+         respond_to do |format|
+          format.html # index.html.erb
+          format.json { render json: cookies[:remember_token]}
+        end
+      else
         sign_in timekeeper
         redirect_to timekeeper
+      end
     end
   end	
 
