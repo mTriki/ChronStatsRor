@@ -5,7 +5,7 @@ class ChampionshipsController < ApplicationController
 
   def show_stats
     @championships = Championship.all
-  end
+  end 
 
   # GET /championships
   def index

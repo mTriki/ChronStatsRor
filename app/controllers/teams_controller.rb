@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, except: => :ranking
+  before_filter :authenticate
 
 
   # GET /teams
