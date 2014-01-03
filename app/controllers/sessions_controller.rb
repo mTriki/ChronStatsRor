@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: "Vous devez vous identifier" }
+      format.json { render json: "false" }
     end
   end
 
