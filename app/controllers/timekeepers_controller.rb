@@ -4,10 +4,19 @@ class TimekeepersController < ApplicationController
   # GET /timekeepers
   def index
     @timekeepers = Timekeeper.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @timekeepers }
+    end
   end
 
   # GET /timekeepers/1
   def show
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: nil }
+    end
   end
 
   # GET /timekeepers/new
