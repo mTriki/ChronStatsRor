@@ -46,7 +46,7 @@
             </li>
           </ul>
           <ul class="menu-third-level" id="equipes_<%= championship.name.delete(" ") %>">
-            <% teams.each do |team| %>
+            <% @teams.each do |team| %>
               <li>
                 <a href="#"><%= image_tag "#{team.name}.png", :alt => "Logo de l'équipe #{team.name}" %></a>
               </li>
