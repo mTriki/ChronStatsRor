@@ -10,6 +10,12 @@ class SeasonsController < ApplicationController
 
   # GET /seasons/1
   def show
+     @season = Season.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @season }
+    end
   end
 
   # GET /seasons/new
