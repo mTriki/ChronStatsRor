@@ -1,9 +1,9 @@
-@font-face { 	font-family: "CustomFontLight"; src: url(../font/HelveticaNeueLTStd-LtCn.otf);} 
-@font-face { 	font-family: "CustomFontBlack"; src: url(../font/HelveticaNeueLTStd-BlkCn.otf);} 
+@font-face { 	font-family: "CustomFontLight"; src: url(<%= asset_path 'HelveticaNeueLTStd-LtCn.otf' %>);} 
+@font-face { 	font-family: "CustomFontBlack"; src: url(<%= asset_path 'HelveticaNeueLTStd-BlkCn.otf' %>);} 
 
 body{
 	background-color :#171717;
-	background-image:url('../images/bg.jpg');
+	background-image:url(<%= asset_path 'bg.jpg' %>);
 	background-position: top center;
 	background-repeat:no-repeat;
 	color:#c00202;
@@ -17,7 +17,7 @@ body{
 }
 
 #banner{
-	background-image:url('../images/banner.png');
+	background-image:url(<%= asset_path 'banner.png' %>);
 	background-repeat:no-repeat;
 	width:960px;
 	height:180px;
@@ -41,7 +41,7 @@ body{
 
 #content{
 	background-color:#fff;
-	background-image:url('../images/bg-content.jpg');
+	background-image:url(<%= asset_path 'bg-content.jpg' %>);
 	background-repeat:no-repeat;
 	min-height: 500px;
 	padding: 20px
