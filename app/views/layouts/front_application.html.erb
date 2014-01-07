@@ -9,7 +9,6 @@
       <%= stylesheet_link_tag "style", :media => 'all' %>
       <%= javascript_include_tag "application" %>
       <%= javascript_include_tag "script" %>
-      <%= javascript_include_tag "jquery-1.10.2.min" %>
   </head>
    <body>
     <!--start mainContainer-->
@@ -34,6 +33,7 @@
           <% end %>
         </ul>
         <% @championships.each do |championship| %>
+          <span class="info"><%= championship.name %></span>
           <ul class="menu-second-level" id="mnu_<%= championship.name.delete(" ") %>">
             <li>
               <a href="classement_<%= championship.name.delete(" ") %>.html">Classement</a>
@@ -46,11 +46,13 @@
             </li>
           </ul>
           <ul class="menu-third-level" id="equipes_<%= championship.name.delete(" ") %>">
-            <% @teams.each do |team| %>
-              <li>
-                <a href="#"><%= image_tag "#{team.name}.png", :alt => "Logo de l'équipe #{team.name}" %></a>
-              </li>
-            <% end %>
+            <% @chTeamps.each do | team | 
+              if team.championship_name == championship.name %>
+                <li>
+                  <a href="#"><%= image_tag "#{team.team_name}.png", :alt => "Logo de l'équipe #{team.team_name}" %></a>
+                </li>
+            <% end
+            end %>
           </ul>
         <% end %>
       </div>

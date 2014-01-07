@@ -5,7 +5,6 @@ $(function() {
 		$(this).addClass("activeTeam");
 	});
 
-
 	$(".menu-second-level").hide();
 	$(".menu-third-level").hide();
 	$(".info").hide();
