@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label "Date d'anniversaire" %><br>
-    <%= date_select(:participant,:birthday) %>
+    <%= date_select(:participant,:birthday, start_year: 1940) %>
   </div>
   <div class="field">
     <%= f.label "Numéro de téléphone" %><br>
@@ -45,7 +45,7 @@
     </div>
     <div class="field">
       <%= f.label "Date de qualification" %><br>
-      <%= date_select(:participant,:dateQualification) %>
+      <%= date_select(:participant,:dateQualification,start_year: 1970)) %>
     </div>
     <% end %>
   <div class="actions">
