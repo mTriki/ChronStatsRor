@@ -1,0 +1,2 @@
+class Coach < Participant
+end

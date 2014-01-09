@@ -1,0 +1,2 @@
+class Referee < Participant
+end
