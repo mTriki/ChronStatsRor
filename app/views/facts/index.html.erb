@@ -14,9 +14,9 @@
     <td><%= fact.time %></td>
     <td><%= fact.match_id %></td>
     <td><%= fact.type %></td>
-    <td><%= link_to 'Show', fact %></td>
-    <td><%= link_to 'Edit', edit_fact_path(fact) %></td>
-    <td><%= link_to 'Destroy', fact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Voir', fact %></td>
+    <td><%= link_to 'Modifier', edit_fact_path(fact) %></td>
+    <td><%= link_to 'Supprimer', fact, method: :delete, data: { confirm: 'Etes-vous sur?' } %></td>
   </tr>
 <% end %>
 </table>

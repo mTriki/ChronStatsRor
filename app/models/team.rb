@@ -11,4 +11,7 @@ class Team < ActiveRecord::Base
   	self.participants.find(:all, :conditions => {:type => 'Player'})
   end
 
+ def display_name
+    "#{name} -  #{club.name}"
+  end
 end

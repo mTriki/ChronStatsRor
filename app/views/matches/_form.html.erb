@@ -16,14 +16,6 @@
     <%= f.datetime_select :date %>
   </div>
   <div class="field">
-    <%= f.label :homeScore %><br>
-    <%= f.number_field :homeScore %>
-  </div>
-  <div class="field">
-    <%= f.label :awayScore %><br>
-    <%= f.number_field :awayScore %>
-  </div>
-  <div class="field">
     <%= f.label :championship_id %><br>
     <%= collection_select(:match, :championship_id, Championship.all, :id , :name) %>
   </div>
@@ -33,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :team_id1_id %><br>
-    <%= collection_select(:match, :team_id1_id, Team.all, :id , :name) %>
+    <%= collection_select(:match, :team_id1_id, Team.all, :id , :display_name) %>
   </div>
   <div class="field">
     <%= f.label :team_id2_id %><br>
-    <%= collection_select(:match, :team_id2_id, Team.all, :id , :name) %>
+    <%= collection_select(:match, :team_id2_id, Team.all, :id , :display_name) %>
   </div>
   <div class="actions">
     <%= f.submit %>
