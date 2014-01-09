@@ -43,6 +43,12 @@ class MatchesController < ApplicationController
     end
   end 
 
+  #POST /matches/1
+  def matchsheet
+    
+    
+  end
+
   # PATCH/PUT /matches/1
   def update
     if @match.update(match_params)

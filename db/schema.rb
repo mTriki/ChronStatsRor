@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108233123) do
+ActiveRecord::Schema.define(version: 20140109122716) do
 
   create_table "championship_teams", id: false, force: true do |t|
     t.string "championship_name"
@@ -44,7 +44,10 @@ ActiveRecord::Schema.define(version: 20140108233123) do
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "player_id"
   end
+
+  add_index "facts", ["player_id"], name: "index_facts_on_player_id", using: :btree
 
   create_table "federations", force: true do |t|
     t.string   "name"
@@ -121,14 +124,6 @@ ActiveRecord::Schema.define(version: 20140108233123) do
     t.integer  "noDossard"
     t.integer  "no_license"
     t.date     "dateQualification"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "participants_teams", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "participant_id"
-    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
