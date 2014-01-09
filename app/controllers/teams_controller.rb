@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :getPlayers]
   before_filter :authenticate
 
 
@@ -45,6 +45,9 @@ class TeamsController < ApplicationController
 
   # PATCH/PUT /teams/1
   def update
+    @players = Participant.where(:id => params[:players_team])
+    @team.participants.destroy_all   #disassociate the already added organizers
+    @team.participants << @players 
     if @team.update(team_params)
       redirect_to @team, notice: 'Team was successfully updated.'
     else
@@ -61,6 +64,10 @@ class TeamsController < ApplicationController
   # get /ranking/1
   def ranking
     @teams = Team.find(params[:id])
+  end
+  # Get /getPlayers/1  [json]
+  def getPlayers
+    render json: @team.players
   end
 
   private

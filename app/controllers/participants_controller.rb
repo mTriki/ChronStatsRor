@@ -5,7 +5,7 @@ class ParticipantsController < ApplicationController
 
   # GET /participants
   def index
-    @participants = Participant.all
+    @participants = participant_type.all
   end
 
   # GET /participants/1
@@ -14,7 +14,12 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/new
   def new
-    @participant = Participant.new
+    @participant = participant_type.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @fact }
+    end
   end
 
   # GET /participants/1/edit
@@ -23,7 +28,9 @@ class ParticipantsController < ApplicationController
 
   # POST /participants
   def create
-    @participant = Participant.new(participant_params)
+
+    logger.debug @participant
+    @participant = participant_type.new(participant_params)
 
     if @participant.save
       redirect_to @participant, notice: 'Participant was successfully created.'
@@ -34,6 +41,8 @@ class ParticipantsController < ApplicationController
 
   # PATCH/PUT /participants/1
   def update
+
+    logger.debug "updateing this shit ==> #{participant_params} "
     if @participant.update(participant_params)
       redirect_to @participant, notice: 'Participant was successfully updated.'
     else
@@ -51,6 +60,9 @@ class ParticipantsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_participant
       @participant = Participant.find(params[:id])
+    end
+    def participant_type
+      params[:type].constantize
     end
 
     # Only allow a trusted parameter "white list" through.

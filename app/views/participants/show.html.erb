@@ -22,14 +22,9 @@
 
 <p>
   <strong>Sexe:</strong>
-  <%= @participant.sexe %>
+  <%= @participant.sexeString %>
 </p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @participant.type %>
-</p>
-
+<% if @participant.type == "Player" %>
 <p>
   <strong>Nodossard:</strong>
   <%= @participant.noDossard %>
@@ -44,6 +39,6 @@
   <strong>Datequalification:</strong>
   <%= @participant.dateQualification %>
 </p>
-
-<%= link_to 'Edit', edit_participant_path(@participant) %> |
-<%= link_to 'Back', participants_path %>
+<% end %>
+<%= link_to 'Modifier', edit_participant_path(@participant) %> |
+<%= link_to 'Retour', participants_path %>

@@ -2,8 +2,6 @@ FirstApp::Application.routes.draw do
   get "sessions/new"
   resources :timekeepers
 
-  resources :participants
-
 
   resources :matches
 
@@ -25,7 +23,7 @@ FirstApp::Application.routes.draw do
 
   resources :federations
 
-
+  get 'teams/:id/getPlayers/', :to => 'teams#getPlayers'
   resources :teams
 
 
@@ -38,6 +36,11 @@ FirstApp::Application.routes.draw do
   resources :facts, :type => 'Fact', :controller => 'facts'
   resources :goals, :type => 'Goal', :controller => 'facts'
   resources :cards, :type => 'Card', :controller => 'facts'
+
+  resources :participants, :type => 'Participant', :controller => 'participants'
+  resources :coaches, :type => 'Coach', :controller => 'participants'
+  resources :players, :type => 'Player', :controller => 'participants'
+  resources :referees, :type => 'Referee', :controller => 'participants'
 
   resources :sessions, :only => [:new, :create, :destroy]
 

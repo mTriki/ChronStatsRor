@@ -1,17 +1,18 @@
-<h1>Listing participants</h1>
+<h1>Liste de <%= Participant.name_FR(params[:type]) %> </h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Firstname</th>
-      <th>Birthday</th>
-      <th>Phone</th>
+      <th>Nom</th>
+      <th>Prénome</th>
+      <th>Anniversaire</th>
+      <th>Téléphone</th>
       <th>Sexe</th>
-      <th>Type</th>
+      <% if params[:type] == "Player" then %>
       <th>Nodossard</th>
       <th>No license</th>
       <th>Datequalification</th>
+      <% end %>
       <th></th>
       <th></th>
       <th></th>
@@ -25,14 +26,13 @@
         <td><%= participant.firstname %></td>
         <td><%= participant.birthday %></td>
         <td><%= participant.phone %></td>
-        <td><%= participant.sexe %></td>
-        <td><%= participant.type %></td>
+        <td><%= participant.sexeString %></td>
         <td><%= participant.noDossard %></td>
         <td><%= participant.no_license %></td>
         <td><%= participant.dateQualification %></td>
-        <td><%= link_to 'Show', participant %></td>
-        <td><%= link_to 'Edit', edit_participant_path(participant) %></td>
-        <td><%= link_to 'Destroy', participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', participant %></td>
+        <td><%= link_to 'Modifier', edit_participant_path(participant) %></td>
+        <td><%= link_to 'Supprimer', participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Participant', new_participant_path %>
+<%= link_to "Ajouter un #{Participant.name_FR(params[:type])}", :action => :new %>

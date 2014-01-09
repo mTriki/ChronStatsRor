@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107080033) do
+ActiveRecord::Schema.define(version: 20140108233123) do
+
+  create_table "championship_teams", id: false, force: true do |t|
+    t.string "championship_name"
+    t.string "team_name"
+  end
 
   create_table "championships", force: true do |t|
     t.string   "name"
@@ -37,8 +42,8 @@ ActiveRecord::Schema.define(version: 20140107080033) do
     t.time     "time"
     t.integer  "match_id"
     t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "federations", force: true do |t|
@@ -94,6 +99,14 @@ ActiveRecord::Schema.define(version: 20140107080033) do
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "participant_teams", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "participant_id"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -112,9 +125,12 @@ ActiveRecord::Schema.define(version: 20140107080033) do
     t.datetime "updated_at"
   end
 
-  create_table "participants_teams", id: false, force: true do |t|
-    t.integer "participants_id", null: false
-    t.integer "teams_id",        null: false
+  create_table "participants_teams", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "participant_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "seasons", force: true do |t|
@@ -136,6 +152,14 @@ ActiveRecord::Schema.define(version: 20140107080033) do
 
   add_index "teams", ["club_id"], name: "index_teams_on_club_id", using: :btree
 
+  create_table "tests", force: true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "timekeepers", force: true do |t|
     t.string   "login"
     t.string   "password"
@@ -149,8 +173,8 @@ ActiveRecord::Schema.define(version: 20140107080033) do
   create_table "users", force: true do |t|
     t.string   "nom"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

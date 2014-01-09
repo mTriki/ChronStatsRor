@@ -4,7 +4,6 @@ class CreateSeasons < ActiveRecord::Migration
       t.string :name
       t.date :begin
       t.date :end
-
       t.timestamps
     end
   end

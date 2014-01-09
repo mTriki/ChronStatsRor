@@ -1,4 +1,4 @@
-class FactsController < ApplicationController
+  class FactsController < ApplicationController
   before_filter :authenticate
 
   # GET /facts
@@ -21,7 +21,6 @@ class FactsController < ApplicationController
   # GET /facts/new
   # GET /facts/new.json
   def new
-    #@fact_type = fact_type
     @fact = fact_type.new
 
     respond_to do |format|

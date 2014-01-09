@@ -12,41 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label "Nom" %><br>
+    <%= text_field(:participant,:name) %>
   </div>
   <div class="field">
-    <%= f.label :firstname %><br>
-    <%= f.text_field :firstname %>
+    <%= f.label "Prénom" %><br>
+    <%= text_field(:participant, :firstname) %>
   </div>
   <div class="field">
-    <%= f.label :birthday %><br>
-    <%= f.date_select :birthday %>
+    <%= f.label "Date d'anniversaire" %><br>
+    <%= date_select(:participant,:birthday) %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.label "Numéro de téléphone" %><br>
+    <%= text_field(:participant,:phone )%>
   </div>
   <div class="field">
-    <%= f.label :sexe %><br>
-    <%= f.check_box :sexe %>
+    <%= f.label "Feminin" %><br>
+    <%= check_box(:participant,:sexe) %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= hidden_field(:participant, :type) %>
   </div>
-  <div class="field">
-    <%= f.label :noDossard %><br>
-    <%= f.number_field :noDossard %>
-  </div>
-  <div class="field">
-    <%= f.label :no_license %><br>
-    <%= f.number_field :no_license %>
-  </div>
-  <div class="field">
-    <%= f.label :dateQualification %><br>
-    <%= f.date_select :dateQualification %>
-  </div>
+  <% if @participant.type == "Player" then %>
+    <div class="field">
+      <%= f.label "No de maillot" %><br>
+      <%= number_field(:participant, :noDossard) %>
+    </div>
+    <div class="field">
+      <%= f.label "No de License" %><br>
+      <%= number_field(:participant,:no_license) %>
+    </div>
+    <div class="field">
+      <%= f.label "Date de qualification" %><br>
+      <%= date_select(:participant,:dateQualification) %>
+    </div>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
