@@ -8,7 +8,6 @@
       <th>Login</th>
       <th>N° de téléphone</th>
       <th>E-mail</th>
-      <th>Mot de passe</th>
       <th>Federation</th>
       <th></th>
       <th></th>
@@ -24,7 +23,6 @@
         <td><%= member.login %></td>
         <td><%= member.phone %></td>
         <td><%= member.email %></td>
-        <td><%= member.password %></td>
         <td><%= member.federation.name %></td>
         <td><%= link_to 'Voir', member %></td>
         <td><%= link_to 'Modifier', edit_member_path(member) %></td>
