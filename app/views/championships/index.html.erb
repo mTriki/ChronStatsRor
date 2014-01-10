@@ -19,8 +19,8 @@
         <td><%= championship.federation.name %></td>
         <td><%= championship.season.name %></td>
         <td><%= link_to 'Afficher', championship %></td>
-        <td><%= link_to 'Editer', edit_championship_path(championship) %></td>
-        <td><%= link_to 'Effacer', championship, method: :delete, data: { confirm: 'Are you sûr?' } %></td>
+        <td><%= link_to 'Modifier', edit_championship_path(championship) %></td>
+        <td><%= link_to 'Supprimer', championship, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to '<button type="button" class="btn btn-primary">Ajouter un championat</button>'.html_safe, new_championship_path %>
+<%= link_to '<button type="button" class="btn btn-danger">Ajouter un championat</button>'.html_safe, new_championship_path %>

@@ -3,11 +3,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Adress</th>
-      <th>Zip</th>
-      <th>City</th>
-      <th>Federation</th>
+      <th>Nom</th>
+      <th>Adresse</th>
+      <th>NPA</th>
+      <th>Ville</th>
+      <th>Fédération</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,9 +22,9 @@
         <td><%= gym.zip %></td>
         <td><%= gym.city %></td>
         <td><%= gym.federation.name %></td>
-        <td><%= link_to 'Show', gym %></td>
-        <td><%= link_to 'Edit', edit_gym_path(gym) %></td>
-        <td><%= link_to 'Destroy', gym, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', gym %></td>
+        <td><%= link_to 'Modifier', edit_gym_path(gym) %></td>
+        <td><%= link_to 'Supprimer', gym, method: :delete, data: { confirm: 'Etes-vous sûr?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to '<button type="button" class="btn btn-primary">Ajouter une salle</button>'.html_safe, new_gym_path %>
+<%= link_to '<button type="button" class="btn btn-danger">Ajouter une salle</button>'.html_safe, new_gym_path %>

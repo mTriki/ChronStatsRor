@@ -3,9 +3,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Begin</th>
-      <th>End</th>
+      <th>Nom</th>
+      <th>Début</th>
+      <th>Fin</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,9 +18,9 @@
         <td><%= season.name %></td>
         <td><%= season.begin %></td>
         <td><%= season.end %></td>
-        <td><%= link_to 'Show', season %></td>
-        <td><%= link_to 'Edit', edit_season_path(season) %></td>
-        <td><%= link_to 'Destroy', season, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', season %></td>
+        <td><%= link_to 'Modifier', edit_season_path(season) %></td>
+        <td><%= link_to 'Supprimer', season, method: :delete, data: { confirm: 'Etes-vous sûr?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to '<button type="button" class="btn btn-primary">Ajouter une saison</button>'.html_safe, new_season_path %>
+<%= link_to '<button type="button" class="btn btn-danger">Ajouter une saison</button>'.html_safe, new_season_path %>

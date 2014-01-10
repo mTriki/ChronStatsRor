@@ -31,7 +31,7 @@ class GymsController < ApplicationController
     @gym = Gym.new(gym_params)
 
     if @gym.save
-      redirect_to @gym, notice: 'Gym was successfully created.'
+      redirect_to @gym, notice: 'La salle a été ajoutée'
     else
       render action: 'new'
     end
@@ -40,7 +40,7 @@ class GymsController < ApplicationController
   # PATCH/PUT /gyms/1
   def update
     if @gym.update(gym_params)
-      redirect_to @gym, notice: 'Gym was successfully updated.'
+      redirect_to @gym, notice: 'La salle a été modifiée'
     else
       render action: 'edit'
     end
@@ -49,7 +49,7 @@ class GymsController < ApplicationController
   # DELETE /gyms/1
   def destroy
     @gym.destroy
-    redirect_to gyms_url, notice: 'Gym was successfully destroyed.'
+    redirect_to gyms_url, notice: 'La salle a été supprimée '
   end
 
   private

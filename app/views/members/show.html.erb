@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom:</strong>
   <%= @member.name %>
 </p>
 
 <p>
-  <strong>Firstname:</strong>
+  <strong>Prénom:</strong>
   <%= @member.firstname %>
 </p>
 
@@ -16,24 +16,24 @@
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>N° de téléphone:</strong>
   <%= @member.phone %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>E-mail:</strong>
   <%= @member.email %>
 </p>
 
 <p>
-  <strong>Password:</strong>
+  <strong>Mot de passe:</strong>
   <%= @member.password %>
 </p>
 
 <p>
-  <strong>Federation:</strong>
+  <strong>Fédération:</strong>
   <%= @member.federation.name %>
 </p>
 
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<%= link_to 'Modifier', edit_member_path(@member) %> |
+<%= link_to 'Retour', members_path %>

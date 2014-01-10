@@ -1,0 +1,2 @@
+class Penalty < Fact
+end

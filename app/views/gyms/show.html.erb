@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom:</strong>
   <%= @gym.name %>
 </p>
 
 <p>
-  <strong>Adress:</strong>
+  <strong>Adresse:</strong>
   <%= @gym.adress %>
 </p>
 
 <p>
-  <strong>Zip:</strong>
+  <strong>NPA:</strong>
   <%= @gym.zip %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Ville:</strong>
   <%= @gym.city %>
 </p>
 
 <p>
-  <strong>Federation:</strong>
+  <strong>Fédération:</strong>
   <%= @gym.federation.name %>
 </p>
 
-<%= link_to 'Edit', edit_gym_path(@gym) %> |
-<%= link_to 'Back', gyms_path %>
+<%= link_to 'Modifier', edit_gym_path(@gym) %> |
+<%= link_to 'Retour', gyms_path %>

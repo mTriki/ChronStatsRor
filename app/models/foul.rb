@@ -1,0 +1,2 @@
+class Foul < Fact
+end

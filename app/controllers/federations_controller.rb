@@ -25,7 +25,7 @@ class FederationsController < ApplicationController
     @federation = Federation.new(federation_params)
 
     if @federation.save
-      redirect_to @federation, notice: 'Federation was successfully created.'
+      redirect_to @federation, notice: 'La fédération a été ajoutée'
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class FederationsController < ApplicationController
   # PATCH/PUT /federations/1
   def update
     if @federation.update(federation_params)
-      redirect_to @federation, notice: 'Federation was successfully updated.'
+      redirect_to @federation, notice: 'La fédération a été modifiée'
     else
       render action: 'edit'
     end
@@ -43,7 +43,7 @@ class FederationsController < ApplicationController
   # DELETE /federations/1
   def destroy
     @federation.destroy
-    redirect_to federations_url, notice: 'Federation was successfully destroyed.'
+    redirect_to federations_url, notice: 'La fédération a été supprimée'
   end
 
   private
@@ -54,6 +54,6 @@ class FederationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def federation_params
-      params.require(:federation).permit(:name, :logo)
+      params.require(:federation).permit(:name)
     end
 end

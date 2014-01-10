@@ -25,7 +25,7 @@ class ClubsController < ApplicationController
     @club = Club.new(club_params)
 
     if @club.save
-      redirect_to @club, notice: 'Club was successfully created.'
+      redirect_to @club, notice: 'Le club a été ajoutée'
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class ClubsController < ApplicationController
   # PATCH/PUT /clubs/1
   def update
     if @club.update(club_params)
-      redirect_to @club, notice: 'Club was successfully updated.'
+      redirect_to @club, notice: 'Le club a été modifiée'
     else
       render action: 'edit'
     end
@@ -43,7 +43,7 @@ class ClubsController < ApplicationController
   # DELETE /clubs/1
   def destroy
     @club.destroy
-    redirect_to clubs_url, notice: 'Club was successfully destroyed.'
+    redirect_to clubs_url, notice: 'Le club a été supprimée'
   end
 
   private

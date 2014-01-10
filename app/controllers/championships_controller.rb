@@ -30,7 +30,7 @@ class ChampionshipsController < ApplicationController
     @championship = Championship.new(championship_params)
 
     if @championship.save
-      redirect_to @championship, notice: 'Championship was successfully created.'
+      redirect_to @championship, notice: 'Le championnat a été ajouté'
     else
       render action: 'new'
     end
@@ -39,7 +39,7 @@ class ChampionshipsController < ApplicationController
   # PATCH/PUT /championships/1
   def update
     if @championship.update(championship_params)
-      redirect_to @championship, notice: 'Championship was successfully updated.'
+      redirect_to @championship, notice: 'Le championnat a été modifié'
     else
       render action: 'edit'
     end
@@ -48,7 +48,7 @@ class ChampionshipsController < ApplicationController
   # DELETE /championships/1
   def destroy
     @championship.destroy
-    redirect_to championships_url, notice: 'Championship was successfully destroyed.'
+    redirect_to championships_url, notice: 'Le championnat a été supprmié'
   end
 
   private

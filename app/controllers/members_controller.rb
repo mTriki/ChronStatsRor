@@ -27,7 +27,7 @@ class MembersController < ApplicationController
 
     if @member.save
       sign_in @member
-      redirect_to @member, notice: 'Member was successfully created.'
+      redirect_to @member, notice: 'Le membre a été ajouté'
     else
       render action: 'new'
     end
@@ -36,7 +36,7 @@ class MembersController < ApplicationController
   # PATCH/PUT /members/1
   def update
     if @member.update(member_params)
-      redirect_to @member, notice: 'Member was successfully updated.'
+      redirect_to @member, notice: 'Le membre a été modifié'
     else
       render action: 'edit'
     end
@@ -45,7 +45,7 @@ class MembersController < ApplicationController
   # DELETE /members/1
   def destroy
     @member.destroy
-    redirect_to members_url, notice: 'Member was successfully destroyed.'
+    redirect_to members_url, notice: 'Le membre a été supprimé'
   end
 
   private

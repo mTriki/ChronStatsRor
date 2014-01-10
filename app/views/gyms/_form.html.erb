@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "Nom" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :adress %><br>
+    <%= f.label "Adresse" %><br>
     <%= f.text_field :adress %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br>
+    <%= f.label "NPA" %><br>
     <%= f.number_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
+    <%= f.label "Ville" %><br>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :federation_id %><br>
+    <%= f.label "Fédération"%><br>
     <%= collection_select(:gym, :federation_id, Federation.all, :id , :name)  %>
   </div>
   <div class="actions">
