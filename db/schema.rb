@@ -11,11 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108233123) do
+ActiveRecord::Schema.define(version: 20140109230101) do
 
   create_table "championship_teams", id: false, force: true do |t|
-    t.string "championship_name"
-    t.string "team_name"
+    t.integer "championship_id",   default: 0, null: false
+    t.string  "championship_name"
+    t.integer "team_id",           default: 0, null: false
+    t.string  "team_name"
   end
 
   create_table "championships", force: true do |t|
@@ -42,8 +44,8 @@ ActiveRecord::Schema.define(version: 20140108233123) do
     t.time     "time"
     t.integer  "match_id"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "federations", force: true do |t|
@@ -99,8 +101,8 @@ ActiveRecord::Schema.define(version: 20140108233123) do
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "participant_teams", force: true do |t|
@@ -125,12 +127,19 @@ ActiveRecord::Schema.define(version: 20140108233123) do
     t.datetime "updated_at"
   end
 
-  create_table "participants_teams", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "participant_id"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "participants_teams", id: false, force: true do |t|
+    t.integer "participants_id", null: false
+    t.integer "teams_id",        null: false
+  end
+
+  create_table "ranking", id: false, force: true do |t|
+    t.integer "championship_id",                                    default: 0, null: false
+    t.integer "team_id",                                            default: 0, null: false
+    t.integer "win",             limit: 8
+    t.integer "nil",             limit: 8
+    t.integer "lose",            limit: 8
+    t.decimal "goals_scored",              precision: 41, scale: 0
+    t.decimal "let_in_goals",              precision: 41, scale: 0
   end
 
   create_table "seasons", force: true do |t|
@@ -139,6 +148,12 @@ ActiveRecord::Schema.define(version: 20140108233123) do
     t.date     "end"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "team_participant", force: true do |t|
+    t.integer "team_id"
+    t.integer "participant_id"
+    t.string  "type"
   end
 
   create_table "teams", force: true do |t|
@@ -151,14 +166,6 @@ ActiveRecord::Schema.define(version: 20140108233123) do
   end
 
   add_index "teams", ["club_id"], name: "index_teams_on_club_id", using: :btree
-
-  create_table "tests", force: true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "timekeepers", force: true do |t|
     t.string   "login"
@@ -173,8 +180,18 @@ ActiveRecord::Schema.define(version: 20140108233123) do
   create_table "users", force: true do |t|
     t.string   "nom"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "win_lose", id: false, force: true do |t|
+    t.integer "championship_id"
+    t.integer "match_id",                  default: 0, null: false
+    t.integer "winner_id",                 default: 0, null: false
+    t.integer "winner_score",    limit: 8
+    t.integer "looser_id",                 default: 0, null: false
+    t.integer "looser_score",    limit: 8
+    t.integer "is_equal"
   end
 
 end

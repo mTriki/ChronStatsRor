@@ -1,33 +1,55 @@
-<span class="title-page">Classement du championnat <%= @championship %></span>
+<span class="title-page">Classement du championnat <%= @championship.name %></span>
 <div class="inner_contennt">
-	<table class="results">
-		 <thead> 
-			<tr>
-				<td>no</td>
-				<td>Equipe</td>
-				<td>Pts</td>
-				<td>J</td>
-				<td>G</td>
-				<td>N</td>
-				<td>P</td>
-				<td>bp</td>
-				<td>bc</td>
-				<td>+/-</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>0</td>
-				<td>Vevey</td>
-				<td>0</td>
-				<td>10</td>
-				<td>0</td>
-				<td>0</td>
-				<td>10</td>
-				<td>2</td>
-				<td>67</td>
-				<td>-65</td>
-			</tr>
-		</tbody>
-	</table>
+  <table class="datagrid">
+     <thead> 
+      <tr>
+        <th>no</th>
+        <th>Equipe</th>
+        <th>Pts</th>
+        <th>J</th>
+        <th>G</th>
+        <th>N</th>
+        <th>P</th>
+        <th>bp</th>
+        <th>bc</th>
+        <th>+/-</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @ranking.each_with_index do | (key, r), i | %>
+      <tr>
+        <td>
+          <%= i %>
+        </td>
+        <td>
+          <%= r.team_name %>
+        </td>
+        <td>
+          <%= r.score %>
+        </td>
+        <td>
+          <%= r.win + r.equal + r.lose %>
+        </td>
+        <td>
+          <%= r.win %>
+        </td>
+        <td>
+          <%= r.equal %>
+        </td>
+        <td>
+          <%= r.lose %>
+        </td>
+        <td>
+          <%= r.goals_scored %>
+        </td>
+        <td>
+          <%= r.let_in_goals %>
+        </td>
+        <td>
+          <%= r.goals_scored - r.let_in_goals %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

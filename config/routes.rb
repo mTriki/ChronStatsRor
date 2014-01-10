@@ -3,7 +3,8 @@ FirstApp::Application.routes.draw do
   get '/signin',     :to => 'sessions#new'
   get '/signout',    :to => 'sessions#destroy'
   get '/:championship_name/ranking', :to => 'stats#show_ranking'
-  get '/:championship_name/matches', :to => 'stats#show_matches'
+  get '/:championship_name/matches/played', :to => 'stats#show_played_matches'
+  get '/:championship_name/matches/future', :to => 'stats#show_future_matches'
   get '/:championship_name/teams/:team_name', :to => 'stats#show_team'
 
   root :to => 'stats#show_home'
