@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :login %><br>
+    <%= f.label Utilisateur %><br>
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>  
+    <%= f.label "Mot de passe" %><br>  
     <%= f.password_field :password %>
   </div>
     <div class="field">
-    <%= f.label :password_confirmation %><br>  
+    <%= f.label "Confirmation de mot de passe" %><br>  
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label :club_id %><br>
+    <%= f.label "Club" %><br>
     <%= collection_select(:timekeeper, :club_id, Club.all, :id , :name)%>
   </div>
   <div class="actions">

@@ -18,7 +18,7 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= match.date %></td>
+        <td><%= match.date.to_formatted_s(:short)  %></td>
         <td><%= match.homeScore %></td>
         <td><%= match.awayScore %></td>
         <td><%= match.championship.name %></td>

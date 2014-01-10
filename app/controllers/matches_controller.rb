@@ -1,6 +1,8 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :edit, :update, :destroy]
+  before_action :set_match, only: [:show, :edit, :update, :destroy, :matchsheet]
   before_filter :authenticate
+
+  skip_before_filter :verify_authenticity_token, :only => [:matchsheet]
 
 
   # GET /matches
@@ -43,10 +45,13 @@ class MatchesController < ApplicationController
     end
   end 
 
-  #POST /matches/1
+  #POST /matches/matchsheet/1
   def matchsheet
-    
-    
+    params["facts"].each do |f|
+      @match.facts << Fact.new(f)
+    end
+    @match.update(match_params)
+    render json: "true"
   end
 
   # PATCH/PUT /matches/1
