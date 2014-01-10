@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109230101) do
+ActiveRecord::Schema.define(version: 20140110135502) do
 
   create_table "championship_teams", id: false, force: true do |t|
     t.integer "championship_id",   default: 0, null: false
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 20140109230101) do
   end
 
   add_index "gyms", ["federation_id"], name: "index_gyms_on_federation_id", using: :btree
+
+  create_table "match_teams", id: false, force: true do |t|
+    t.datetime "date"
+    t.integer  "homeScore"
+    t.integer  "awayScore"
+    t.integer  "championship_id"
+    t.string   "team1_name"
+    t.string   "team2_name"
+  end
 
   create_table "matches", force: true do |t|
     t.datetime "date"
@@ -140,8 +149,8 @@ ActiveRecord::Schema.define(version: 20140109230101) do
     t.integer "win",             limit: 8
     t.integer "equal",           limit: 8
     t.integer "lose",            limit: 8
-    t.decimal "goals_scored",              precision: 41, scale: 0
-    t.decimal "let_in_goals",              precision: 41, scale: 0
+    t.decimal "goals_scored",              precision: 42, scale: 0
+    t.decimal "let_in_goals",              precision: 42, scale: 0
   end
 
   create_table "seasons", force: true do |t|

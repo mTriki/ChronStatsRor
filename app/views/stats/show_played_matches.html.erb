@@ -1,4 +1,4 @@
-<span class="title-page">Matchs <%= @championship.name %></span>
+<span class="title-page">Matchs joués - <%= @championship.name %></span>
 <div class="inner_contennt">
   <table class="datagrid">
      <thead> 
@@ -10,27 +10,20 @@
     </thead>
     <tbody>
     <% @matches.each do | match |
-      if match.date < Time.now %>
+      if match.date < Time.now && r.championship_id == @championship.id %>
       <tr>
         <td>
           <%= match.date %>
         </td>
         <td>
-          <a href=""><%=  %></a>
+          <a href=""><%= match.team1_name %> vs <%= match.team2_name %></a>
         </td>
         <td>
-
+          <%= match.homeScore %> - <%= match.awayScore%>
         </td>
       </tr>
     <% end
     end %>
-      <tr>
-        <td>10.12.14</td><td><a href="match.html">Montcherand vs HC Vevey</a></td><td>1337-5</td></tr>
-        <td>10.12.14</td><td><a href="match.html">Orbe vs HC Vevey</a></td><td>1337-5</td></tr>
-        <td>10.12.14</td><td><a href="match.html">Yveron vs HC Vevey</a></td><td>1337-5</td></tr>
-        <td>10.12.14</td><td><a href="match.html">Moudon vs HC Vevey</a></td><td>1337-5</td></tr>
-        <td>10.12.14</td><td><a href="match.html">Ste-Croix vs HC Vevey</a></td><td>1337-5</td></tr>
-
     </tbody>
   </table>
 </div>

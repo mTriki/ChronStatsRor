@@ -11,12 +11,12 @@ class StatsController < ApplicationController
 
 	def show_played_matches
 		@championship = Championship.find_by_name(params[:championship_name])
-		@matches = Match.all
+		@matches = MatchTeams.all
 	end
 
 	def show_future_matches
 		@championship = Championship.find_by_name(params[:championship_name])
-		@matches = Match.all
+		@matches = MatchTeams.all
 	end
 
 	def show_team
