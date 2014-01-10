@@ -14,6 +14,10 @@ class ChampionshipsController < ApplicationController
 
   # GET /championships/1
   def show
+    respond_to do |format|
+      format.html 
+      format.json { render json: @championship }
+    end
   end
 
   # GET /championships/new

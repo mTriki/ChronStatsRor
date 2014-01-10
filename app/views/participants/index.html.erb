@@ -1,17 +1,17 @@
-<h1>Liste de <%= Participant.name_FR(params[:type]) %> </h1>
+<h1>Liste de <%= Participant.name_FR(params[:type]) %><%= if @participants.count > 1 then "s" end %> </h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Nom</th>
-      <th>Prénome</th>
+      <th>Prénom</th>
       <th>Anniversaire</th>
       <th>Téléphone</th>
       <th>Sexe</th>
       <% if params[:type] == "Player" then %>
-      <th>Nodossard</th>
-      <th>No license</th>
-      <th>Datequalification</th>
+      <th>N° de maillot</th>
+      <th>N° license</th>
+      <th>Date de qualification</th>
       <% end %>
       <th></th>
       <th></th>
