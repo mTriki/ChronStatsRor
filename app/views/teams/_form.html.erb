@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "Nom" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :homeColor %><br>
+    <%= f.label "Couleur domicile" %><br>
     <%= f.text_field :homeColor %>
   </div>
   <div class="field">
-    <%= f.label :awayColor %><br>
+    <%= f.label "Couleur extérieure" %><br>
     <%= f.text_field :awayColor %>
   </div>
   <div class="field">
-    <%= f.label :club_id %><br>
+    <%= f.label "Club" %><br>
     <%= collection_select(:team, :club_id, Club.all, :id , :name)%>
   </div>
   <div class="field">
-  <%= f.label :players %>
+  <%= f.label "Joueurs" %>
   <%= select_tag "players_team", options_from_collection_for_select(Player.all, 'id', 'display_name',@team.participants.map{ |j| j.id }), :multiple => true %>
   </div>
   <div class="actions">

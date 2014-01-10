@@ -18,7 +18,7 @@
         <td><%= club.name %></td>
         <td><%= club.adress %></td>
         <td><%= "#{club.zip} #{club.city}" %></td>
-        <td><%= link_to 'Afficher', club %></td>
+        <td><%= link_to 'Voir', club %></td>
         <td><%= link_to 'Modifier', edit_club_path(club) %></td>
         <td><%= link_to 'Supprimer', club, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
       </tr>

@@ -26,22 +26,22 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Club", controller: "clubs", action: "index" %></li>
-            <li><%= link_to "Championnat", controller: "championships", action: "index" %></li>
-            <li><%= link_to "Chronométreur", controller: "timekeepers", action: "index" %></li>
+            <li><%= link_to "Clubs", controller: "clubs", action: "index" %></li>
+            <li><%= link_to "Championnats", controller: "championships", action: "index" %></li>
+            <li><%= link_to "Chronométreurs", controller: "timekeepers", action: "index" %></li>
             <li><%= link_to "Equipes", controller: "teams", action: "index" %></li>
-            <li><%= link_to "Federation", controller: "federations", action: "index" %></li>
-            <li><%= link_to "Salle", controller: "gyms", action: "index" %></li>
+            <li><%= link_to "Fédérations", controller: "federations", action: "index" %></li>
+            <li><%= link_to "Salles", controller: "gyms", action: "index" %></li>
             <li><%= link_to "Matches", controller: "matches", action: "index" %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Participants <b class="caret"></b></a>
               <ul class="dropdown-menu">	
               <li><%= link_to "Membres", controller: "members", action: "index" %></li>
-        		  <li><%= link_to "Arbitre", referees_path %></li>
-            	<li><%= link_to "Entraieneur", coaches_path %></li>
-            	<li><%= link_to "Joueur", players_path %></li>
+        		  <li><%= link_to "Arbitres", referees_path %></li>
+            	<li><%= link_to "Entraieneurs", coaches_path %></li>
+            	<li><%= link_to "Joueurs", players_path %></li>
               </ul>
-             <li><%= link_to "Saison", controller: "seasons", action: "index" %></li>
+             <li><%= link_to "Saisons", controller: "seasons", action: "index" %></li>
             </li>
              <% if signed_in? %>
                 <li><%= link_to "Déco.", signout_path %></li>

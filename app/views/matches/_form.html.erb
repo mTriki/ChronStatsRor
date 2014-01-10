@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br>
+    <%= f.label "Date" %><br>
     <%= f.datetime_select :date %>
   </div>
   <div class="field">
-    <%= f.label :championship_id %><br>
+    <%= f.label "Championnat" %><br>
     <%= collection_select(:match, :championship_id, Championship.all, :id , :name) %>
   </div>
   <div class="field">
-    <%= f.label :gym_id %><br>
+    <%= f.label "Salle" %><br>
     <%= collection_select(:match, :gym_id, Gym.all, :id , :name) %>
   </div>
   <div class="field">
-    <%= f.label :team_id1_id %><br>
+    <%= f.label "Equipe hôte" %><br>
     <%= collection_select(:match, :team_id1_id, Team.all, :id , :display_name) %>
   </div>
   <div class="field">
-    <%= f.label :team_id2_id %><br>
+    <%= f.label "Equipe visiteuse" %><br>
     <%= collection_select(:match, :team_id2_id, Team.all, :id , :display_name) %>
   </div>
   <div class="actions">

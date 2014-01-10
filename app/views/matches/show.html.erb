@@ -6,34 +6,24 @@
 </p>
 
 <p>
-  <strong>Homescore:</strong>
-  <%= @match.homeScore %>
-</p>
-
-<p>
-  <strong>Awayscore:</strong>
-  <%= @match.awayScore %>
-</p>
-
-<p>
-  <strong>Championship:</strong>
+  <strong>Championnat:</strong>
   <%= @match.championship.name %>
 </p>
 
 <p>
-  <strong>Gym:</strong>
+  <strong>Salle:</strong>
   <%= @match.gym.name %>
 </p>
 
 <p>
-  <strong>Team id1:</strong>
-  <%= @match.team1.name %>
+  <strong>Equipe hôte :</strong>
+  <%= @match.team1.display_name %>
 </p>
 
 <p>
-  <strong>Team id2:</strong>
-  <%= @match.team2.name %>
+  <strong>Equipe visiteuse</strong>
+  <%= @match.team2.display_name %>
 </p>
 
-<%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+<%= link_to 'Modifier', edit_match_path(@match) %> |
+<%= link_to 'Retour', matches_path %>

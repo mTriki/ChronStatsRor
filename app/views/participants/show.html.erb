@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom:</strong>
   <%= @participant.name %>
 </p>
 
 <p>
-  <strong>Firstname:</strong>
+  <strong>Prénom:</strong>
   <%= @participant.firstname %>
 </p>
 
 <p>
-  <strong>Birthday:</strong>
+  <strong>Date d'anniversaire:</strong>
   <%= @participant.birthday %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>N° de téléphone:</strong>
   <%= @participant.phone %>
 </p>
 
@@ -26,17 +26,17 @@
 </p>
 <% if @participant.type == "Player" %>
 <p>
-  <strong>Nodossard:</strong>
+  <strong>N° de maillot:</strong>
   <%= @participant.noDossard %>
 </p>
 
 <p>
-  <strong>No license:</strong>
+  <strong>N° license:</strong>
   <%= @participant.no_license %>
 </p>
 
 <p>
-  <strong>Datequalification:</strong>
+  <strong>Date de qualification:</strong>
   <%= @participant.dateQualification %>
 </p>
 <% end %>
