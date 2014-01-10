@@ -16,9 +16,9 @@
       <tr>
         <td><%= timekeeper.login %></td>
         <td><%= timekeeper.club.name %></td>
-        <td><%= link_to 'Show', timekeeper %></td>
-        <td><%= link_to 'Edit', edit_timekeeper_path(timekeeper) %></td>
-        <td><%= link_to 'Destroy', timekeeper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', timekeeper %></td>
+        <td><%= link_to 'Modifier', edit_timekeeper_path(timekeeper) %></td>
+        <td><%= link_to 'Supprimer', timekeeper, method: :delete, data: { confirm: 'Etes-vous sûr?' } %></td>
       </tr>
     <% end %>
   </tbody>

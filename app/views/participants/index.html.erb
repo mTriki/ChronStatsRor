@@ -27,12 +27,14 @@
         <td><%= participant.birthday %></td>
         <td><%= participant.phone %></td>
         <td><%= participant.sexeString %></td>
+        <% if params[:type] == "Player" then %>
         <td><%= participant.noDossard %></td>
         <td><%= participant.no_license %></td>
         <td><%= participant.dateQualification %></td>
+        <% end %>
         <td><%= link_to 'Voir', participant %></td>
         <td><%= link_to 'Modifier', edit_participant_path(participant) %></td>
-        <td><%= link_to 'Supprimer', participant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Supprimer', participant, method: :delete, data: { confirm: 'Etes-vous sur?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +42,4 @@
 
 <br>
 
-<%= link_to "Ajouter un #{Participant.name_FR(params[:type])}", :action => :new %>
+<%= link_to "<button type='button' class='btn btn-primary'>Ajouter un #{Participant.name_FR(params[:type])}</button>".html_safe, :action => :new %>

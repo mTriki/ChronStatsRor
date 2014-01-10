@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "Nom" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :federation_id %><br>
+    <%= f.label "Federation" %><br>
     <%= collection_select(:championship, :federation_id, Federation.all, :id , :name)%>
   </div>
   <div class="field">
-    <%= f.label :season_id %><br>
+    <%= f.label "Championnat" %><br>
     <%= collection_select(:championship, :season_id, Season.all, :id , :name) %>
   </div>
   <div class="actions">

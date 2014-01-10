@@ -5,6 +5,11 @@ class ChampionshipsController < ApplicationController
   # GET /championships
   def index
     @championships = Championship.all
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @championships }
+    end
   end
 
   # GET /championships/1

@@ -18,16 +18,16 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= match.date %></td>
+        <td><%= match.date.to_formatted_s(:short)  %></td>
         <td><%= match.homeScore %></td>
         <td><%= match.awayScore %></td>
         <td><%= match.championship.name %></td>
         <td><%= match.gym.name %></td>
         <td><%= match.team1.name %></td>
         <td><%= match.team2.name %></td>
-        <td><%= link_to 'Show', match %></td>
-        <td><%= link_to 'Edit', edit_match_path(match) %></td>
-        <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', match %></td>
+        <td><%= link_to 'Modifier', edit_match_path(match) %></td>
+        <td><%= link_to 'Supprimer', match, method: :delete, data: { confirm: 'Etes vous sur ?' } %></td>
       </tr>
     <% end %>
   </tbody>

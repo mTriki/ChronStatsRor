@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom :</strong>
   <%= @team.name %>
 </p>
 
 <p>
-  <strong>Homecolor:</strong>
+  <strong>Couleur domicile:</strong>
   <%= @team.homeColor %>
 </p>
 
 <p>
-  <strong>Awaycolor:</strong>
+  <strong>Couleur à l'extérieur:</strong>
   <%= @team.awayColor %>
 </p>
 
@@ -20,5 +20,21 @@
   <%= @team.club.name %>
 </p>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<p>
+	<strong>Joueurs</strong><br />
+	<table class="table table-striped" style="width:200px">
+		<tr>
+			<th>Nom</th>
+			<th>N°</th>
+		</tr>
+		<% @team.players.each do |t| %>
+		<tr>
+			<td><%= t.display_name %></td>
+			<td><%= t.noDossard %></td>
+		</tr>
+		<% end %>
+	</table>
+</p>
+
+<%= link_to 'Modifier', edit_team_path(@team) %> |
+<%= link_to 'Retour', teams_path %>

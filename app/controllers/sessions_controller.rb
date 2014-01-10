@@ -10,11 +10,10 @@ class SessionsController < ApplicationController
 
 
  def create
-
     if request.format.json?
       timekeeper = Timekeeper.authenticate(params[:login],params[:password])
     else
-      timekeeper = Timekeeper.authenticate(params[:session][:login],
+      timekeeper = Member.authenticate(params[:session][:login],
                                            params[:session][:password])
     end
 

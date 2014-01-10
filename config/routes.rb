@@ -13,7 +13,7 @@ FirstApp::Application.routes.draw do
 
   resources :timekeepers
 
-
+  post 'matches/matchsheet/:id/', :to => 'matches#matchsheet'
   resources :matches
 
 

@@ -1,6 +1,8 @@
 class TimekeepersController < ApplicationController
   before_action :set_timekeeper, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate
+
+
   # GET /timekeepers
   def index
     @timekeepers = Timekeeper.all
@@ -34,7 +36,7 @@ class TimekeepersController < ApplicationController
 
     if @timekeeper.save
       sign_in @timekeeper
-      redirect_to @timekeeper, notice: 'Timekeeper was successfully created.'
+      redirect_to @timekeeper, notice: 'Le chronomètreur a été ajouté'
     else
       render action: 'new'
     end
@@ -43,7 +45,7 @@ class TimekeepersController < ApplicationController
   # PATCH/PUT /timekeepers/1
   def update
     if @timekeeper.update(timekeeper_params)
-      redirect_to @timekeeper, notice: 'Timekeeper was successfully updated.'
+      redirect_to @timekeeper, notice: 'Le chronomètreur a été modifié'
     else
       render action: 'edit'
     end
@@ -52,7 +54,7 @@ class TimekeepersController < ApplicationController
   # DELETE /timekeepers/1
   def destroy
     @timekeeper.destroy
-    redirect_to timekeepers_url, notice: 'Timekeeper was successfully destroyed.'
+    redirect_to timekeepers_url, notice: 'Le chronomètreur a été supprimé'
   end
 
   private

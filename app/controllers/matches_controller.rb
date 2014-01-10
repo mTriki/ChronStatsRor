@@ -1,6 +1,8 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :edit, :update, :destroy]
+  before_action :set_match, only: [:show, :edit, :update, :destroy, :matchsheet]
   before_filter :authenticate
+
+  skip_before_filter :verify_authenticity_token, :only => [:matchsheet]
 
 
   # GET /matches
@@ -35,13 +37,27 @@ class MatchesController < ApplicationController
   # POST /matches
   def create
     @match = Match.new(match_params)
-    @match.save
+
+    if @match.save
+      redirect_to @match, notice: 'Match ajouté correctement'
+    else
+      render action: 'new'
+    end
+  end 
+
+  #POST /matches/matchsheet/1
+  def matchsheet
+    params["facts"].each do |f|
+      @match.facts << Fact.new(f)
+    end
+    @match.update(match_params)
+    render json: "true"
   end
 
   # PATCH/PUT /matches/1
   def update
     if @match.update(match_params)
-      redirect_to @match, notice: 'Match was successfully updated.'
+      redirect_to @match, notice: 'Le match a été mis à jour'
     else
       render action: 'edit'
     end
@@ -50,7 +66,7 @@ class MatchesController < ApplicationController
   # DELETE /matches/1
   def destroy
     @match.destroy
-    redirect_to matches_url, notice: 'Match was successfully destroyed.'
+    redirect_to matches_url, notice: 'Le match à été supprimé'
   end
 
   private

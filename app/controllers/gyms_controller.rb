@@ -6,6 +6,11 @@ class GymsController < ApplicationController
   # GET /gyms
   def index
     @gyms = Gym.all
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @gyms }
+    end
   end
 
   # GET /gyms/1

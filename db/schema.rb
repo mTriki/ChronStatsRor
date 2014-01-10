@@ -132,11 +132,13 @@ ActiveRecord::Schema.define(version: 20140109230101) do
     t.integer "teams_id",        null: false
   end
 
-  create_table "ranking", id: false, force: true do |t|
+  create_table "rankings", id: false, force: true do |t|
     t.integer "championship_id",                                    default: 0, null: false
     t.integer "team_id",                                            default: 0, null: false
+    t.string  "team_name"
+    t.integer "score",           limit: 8
     t.integer "win",             limit: 8
-    t.integer "nil",             limit: 8
+    t.integer "equal",           limit: 8
     t.integer "lose",            limit: 8
     t.decimal "goals_scored",              precision: 41, scale: 0
     t.decimal "let_in_goals",              precision: 41, scale: 0

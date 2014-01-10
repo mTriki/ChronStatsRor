@@ -85,6 +85,6 @@
   end
 
   def fact_params
-      params.require(:fact).permit(:time, :match_id,:type)
+      params.require(:fact).permit(:time, :match_id,:type, :player_id)
     end
 end
