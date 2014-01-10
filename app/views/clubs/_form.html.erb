@@ -10,24 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label "Nom" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label "Adresse" %><br>
-    <%= f.text_field :adress %>
-  </div>
-  <div class="field">
-    <%= f.label "NPA" %><br>
-    <%= f.number_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label "Ville" %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+      <%= f.label "Nom" %><br>
+      <%= f.text_field :name %>
+    <div class="field">
+      <%= f.label "Adresse" %><br>
+      <%= f.text_field :adress %>
+    </div>
+    <div class="field">
+      <%= f.label "NPA" %><br>
+      <%= f.number_field :zip %>
+    </div>
+    <div class="field">
+      <%= f.label "Ville" %><br>
+      <%= f.text_field :city %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
 <% end %>
