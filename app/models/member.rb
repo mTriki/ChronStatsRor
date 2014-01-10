@@ -4,7 +4,7 @@ class Member < ActiveRecord::Base
 # Crée automatique l'attribut virtuel 'password_confirmation'.
   validates :password,         :presence     => true,
                                :confirmation => true,
-                               :length       => { :within => 6..40 }
+                               :length       => { :within => 4..40 }
 
   validates :login,          :presence => true,
                                   :length   => { :maximum => 50 }

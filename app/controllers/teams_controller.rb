@@ -37,7 +37,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
-      redirect_to @team, notice: 'Team was successfully created.'
+      redirect_to @team, notice: "L'équipe à été ajoutée " 
     else
       render action: 'new'
     end
@@ -49,7 +49,7 @@ class TeamsController < ApplicationController
     @team.participants.destroy_all   #disassociate the already added organizers
     @team.participants << @players 
     if @team.update(team_params)
-      redirect_to @team, notice: 'Team was successfully updated.'
+      redirect_to @team, notice: "L'équipe à été modifiée"
     else
       render action: 'edit'
     end
@@ -58,7 +58,7 @@ class TeamsController < ApplicationController
   # DELETE /teams/1
   def destroy
     @team.destroy
-    redirect_to teams_url, notice: 'Team was successfully destroyed.'
+    redirect_to teams_url, notice: "L'équipe à été supprimée"
   end
 
   # get /ranking/1
