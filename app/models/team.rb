@@ -14,4 +14,8 @@ class Team < ActiveRecord::Base
  def display_name
     "#{name} -  #{club.name}"
   end
+
+  def coach
+    self.participants.find_by_type("Coach")
+  end
 end

@@ -7,12 +7,12 @@
 
 <p>
   <strong>Fédération:</strong>
-  <%= @championship.federation %>
+  <%= @championship.federation.name %>
 </p>
 
 <p>
   <strong>Saison:</strong>
-  <%= @championship.season %>
+  <%= @championship.season.name %>
 </p>
 
 <%= link_to 'Modifier', edit_championship_path(@championship) %> |

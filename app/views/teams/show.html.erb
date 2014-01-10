@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nom :</strong>
+  <strong>Nom:</strong>
   <%= @team.name %>
 </p>
 
@@ -18,6 +18,11 @@
 <p>
   <strong>Club:</strong>
   <%= @team.club.name %>
+</p>
+
+<p>
+  <strong>Entraineur:</strong>
+  <%= @team.coach.display_name %>
 </p>
 
 <p>

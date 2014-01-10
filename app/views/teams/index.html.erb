@@ -7,6 +7,7 @@
       <th>Couleur domicile</th>
       <th>Couleur extérieure</th>
       <th>Club</th>
+      <th>Entraineur</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,7 +20,8 @@
         <td><%= team.name %></td>
         <td><%= team.homeColor %></td>
         <td><%= team.awayColor %></td>
-        <td><%= team.club.name %></td>
+        <td><%= team.club %></td>
+        <td><%= team.coach %></td>
         <td><%= link_to 'Voir', team %></td>
         <td><%= link_to 'Modifier', edit_team_path(team) %></td>
         <td><%= link_to 'Supprimer', team, method: :delete, data: { confirm: 'Etes-vous sûr?' } %></td>

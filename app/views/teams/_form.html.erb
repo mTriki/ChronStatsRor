@@ -28,9 +28,14 @@
     <%= collection_select(:team, :club_id, Club.all, :id , :name)%>
   </div>
   <div class="field">
-  <%= f.label "Joueurs" %>
-  <%= select_tag "players_team", options_from_collection_for_select(Player.all, 'id', 'display_name',@team.participants.map{ |j| j.id }), :multiple => true %>
+    <%= f.label "Joueurs" %><br>
+    <%= select_tag "players_team", options_from_collection_for_select(Player.all, 'id', 'display_name',@team.participants.map{ |j| j.id }), :multiple => true %>
   </div>
+  <div class="field">
+    <%= f.label "Entraineur" %><br>
+    <%= collection_select(:coach, :coach_id ,Coach.all, :id, :display_name)%>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

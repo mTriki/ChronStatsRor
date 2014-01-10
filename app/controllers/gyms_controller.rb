@@ -15,6 +15,11 @@ class GymsController < ApplicationController
 
   # GET /gyms/1
   def show
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @gyms }
+    end
   end
 
   # GET /gyms/new

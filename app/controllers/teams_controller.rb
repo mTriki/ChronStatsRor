@@ -34,7 +34,12 @@ class TeamsController < ApplicationController
 
   # POST /teams
   def create
+
+    @players = Participant.where(:id => params[:players_team])
     @team = Team.new(team_params)
+    @coach = Coach.find(params[:coach][:coach_id])
+    @team.participants << @coach 
+    @team.participants << @players 
 
     if @team.save
       redirect_to @team, notice: "L'équipe à été ajoutée " 
@@ -47,6 +52,9 @@ class TeamsController < ApplicationController
   def update
     @players = Participant.where(:id => params[:players_team])
     @team.participants.destroy_all   #disassociate the already added organizers
+    @coach = Coach.find(params[:coach][:coach_id])
+    @coach.type = "Coach"
+    @team.participants << @coach 
     @team.participants << @players 
     if @team.update(team_params)
       redirect_to @team, notice: "L'équipe à été modifiée"
