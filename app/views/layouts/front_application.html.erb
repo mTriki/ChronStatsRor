@@ -23,7 +23,7 @@
       <div id="menu">
         <ul class="menu-first-level">
           <li class="home-button">
-            <%= image_tag "home.jpg", :alt => "Accueil" %>
+            <a href="/"><%= image_tag "home.jpg", :alt => "Accueil" %></a>
           </li>
           <% championships.each do |championship| %>
             <li>
@@ -65,7 +65,7 @@
       <!--end content-->
 
       <div id="footer">
-        Copyright 2013 Chron&Stats | <%= link_to "Se connecter", controller: "sessions", action: "new" %>
+        Copyright 2013 Chron&Stats | <%= link_to "Admin", controller: "clubs", action: "index" %>
       </div>  
 
     </div>

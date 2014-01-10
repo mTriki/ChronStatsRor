@@ -16,7 +16,10 @@
       </tr>
     </thead>
     <tbody>
-    <% @ranking.each_with_index do | (key, r), i | %>
+    <%
+      i = 1
+      @ranking.each_with_index do | r | 
+        if r.championship_id == @championship.id %>
       <tr>
         <td>
           <%= i %>
@@ -49,7 +52,10 @@
           <%= r.goals_scored - r.let_in_goals %>
         </td>
       </tr>
-    <% end %>
+    <%
+          i = i + 1
+        end
+      end %>
     </tbody>
   </table>
 </div>

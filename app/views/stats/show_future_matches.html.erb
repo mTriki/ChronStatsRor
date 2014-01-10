@@ -1,4 +1,4 @@
-<span class="title-page">Prochaines renctrontre pour la 3eme division</span>
+<span class="title-page">Matchs à venir - <%= @championship.name %></span>
 <div class="inner_contennt">
   <table class="datagrid">
      <thead> 
@@ -8,12 +8,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>10.12.14</td><td><a href="match.html">Montcherand vs HC Vevey</a></td></tr>
-        <td>10.12.14</td><td><a href="match.html">Orbe vs HC Vevey</a></td></tr>
-        <td>10.12.14</td><td><a href="match.html">Yveron vs HC Vevey</a></td></tr>
-        <td>10.12.14</td><td><a href="match.html">Moudon vs HC Vevey</a></td></tr>
-        <td>10.12.14</td><td><a href="match.html">Ste-Croix vs HC Vevey</a></td></tr>
+      <% @matches.each do | match |
+        if match.date >= Time.now and match.championship_id == @championship.id %>
+        <tr>
+          <td>
+            <%= match.date.to_formatted_s(:short) %>
+          </td>
+          <td>
+            <a href=""><%= match.team1_name %> vs <%= match.team2_name %></a>
+          </td>
+        </tr>
+      <% end
+      end %>
     </tbody>
   </table>
 </div>
