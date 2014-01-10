@@ -9,10 +9,10 @@
     </thead>
     <tbody>
       <% @matches.each do | match |
-        if match.date >= Time.now %>
+        if match.date >= Time.now and match.championship_id == @championship.id %>
         <tr>
           <td>
-            <%= match.date %>
+            <%= match.date.to_formatted_s(:short) %>
           </td>
           <td>
             <a href=""><%= match.team1_name %> vs <%= match.team2_name %></a>
