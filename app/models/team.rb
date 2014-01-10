@@ -1,5 +1,6 @@
 class Team < ActiveRecord::Base
   belongs_to :club
+  belongs_to :referee
   has_many :matches
 
   has_many :participantTeams

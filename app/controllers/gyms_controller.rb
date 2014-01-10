@@ -18,7 +18,7 @@ class GymsController < ApplicationController
 
     respond_to do |format|
       format.html 
-      format.json { render json: @gyms }
+      format.json { render json: @gym }
     end
   end
 
