@@ -24,6 +24,10 @@
     <%= collection_select(:match, :gym_id, Gym.all, :id , :name) %>
   </div>
   <div class="field">
+    <%= f.label "Arbitre" %><br>
+    <%= collection_select(:match, :referee_id, Referee.all, :id , :display_name) %>
+  </div>
+  <div class="field">
     <%= f.label "Equipe hôte" %><br>
     <%= collection_select(:match, :team_id1_id, Team.all, :id , :display_name) %>
   </div>

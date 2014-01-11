@@ -5,6 +5,7 @@
       <th>Date</th>
       <th>Championnat</th>
       <th>Salle</th>
+      <th>Arbitre</th>
       <th>Hôte</th>
       <th>Visiteurs</th>
       <th></th>
@@ -19,6 +20,7 @@
         <td><%= match.date.to_formatted_s(:short)  %></td>
         <td><%= match.championship.name %></td>
         <td><%= match.gym.name %></td>
+        <td><%= if !match.referee.nil? then match.referee.display_name end %></td>
         <td><%= match.team1.display_name %></td>
         <td><%= match.team2.display_name %></td>
         <td><%= link_to 'Voir', match %></td>

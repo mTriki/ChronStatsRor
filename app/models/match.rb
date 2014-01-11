@@ -1,6 +1,7 @@
 class Match < ActiveRecord::Base
   belongs_to :championship
   belongs_to :gym
+  belongs_to :referee
   belongs_to :team, :class_name => "Team", :foreign_key => "team_id1_id"
   belongs_to :team, :class_name => "Team", :foreign_key => "team_id2_id"
   has_many :facts
