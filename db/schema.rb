@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110151135) do
+ActiveRecord::Schema.define(version: 20140112181204) do
 
   create_table "championship_teams", id: false, force: true do |t|
     t.integer "championship_id",   default: 0, null: false
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 20140110151135) do
   end
 
   create_table "facts", force: true do |t|
-    t.integer  "time"
+    t.time     "time"
     t.integer  "match_id"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "player_id"
   end
 
@@ -71,11 +71,14 @@ ActiveRecord::Schema.define(version: 20140110151135) do
   add_index "gyms", ["federation_id"], name: "index_gyms_on_federation_id", using: :btree
 
   create_table "match_teams", id: false, force: true do |t|
+    t.integer  "championship_id"
+    t.integer  "match_id",        default: 0, null: false
     t.datetime "date"
     t.integer  "homeScore"
     t.integer  "awayScore"
-    t.integer  "championship_id"
+    t.integer  "team1_id",        default: 0, null: false
     t.string   "team1_name"
+    t.integer  "team2_id",        default: 0, null: false
     t.string   "team2_name"
   end
 
@@ -115,8 +118,8 @@ ActiveRecord::Schema.define(version: 20140110151135) do
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "participant_teams", force: true do |t|
@@ -141,6 +144,11 @@ ActiveRecord::Schema.define(version: 20140110151135) do
     t.datetime "updated_at"
   end
 
+  create_table "participants_teams", id: false, force: true do |t|
+    t.integer "participants_id", null: false
+    t.integer "teams_id",        null: false
+  end
+
   create_table "rankings", id: false, force: true do |t|
     t.integer "championship_id",                                    default: 0, null: false
     t.integer "team_id",                                            default: 0, null: false
@@ -161,6 +169,63 @@ ActiveRecord::Schema.define(version: 20140110151135) do
     t.datetime "updated_at"
   end
 
+  create_table "show_matches", id: false, force: true do |t|
+    t.integer "championship_id"
+    t.integer "team_id"
+    t.string  "team_name"
+    t.integer "match_id",                        default: 0, null: false
+    t.integer "participant_id"
+    t.string  "participant_name"
+    t.string  "participant_firstname"
+    t.integer "goal",                  limit: 8
+    t.integer "foul",                  limit: 8
+  end
+
+  create_table "show_teams", id: false, force: true do |t|
+    t.integer "championship_id",                 default: 0, null: false
+    t.integer "team_id"
+    t.integer "participant_id"
+    t.string  "participant_name"
+    t.string  "participant_firstname"
+    t.integer "goal",                  limit: 8
+    t.integer "foul",                  limit: 8
+    t.integer "penalty",               limit: 8
+  end
+
+  create_table "team_coaches", id: false, force: true do |t|
+    t.integer "team_id",   default: 0, null: false
+    t.string  "team_name"
+    t.string  "name"
+    t.string  "firstname"
+  end
+
+  create_table "team_facts", id: false, force: true do |t|
+    t.integer "championship_id"
+    t.integer "team_id"
+    t.string  "team_name"
+    t.integer "match_id",              default: 0, null: false
+    t.integer "participant_id"
+    t.string  "participant_name"
+    t.string  "participant_firstname"
+    t.integer "fact_id",               default: 0, null: false
+    t.string  "fact_type"
+    t.time    "fact_time"
+  end
+
+  create_table "team_participant", force: true do |t|
+    t.integer "team_id"
+    t.integer "participant_id"
+    t.string  "type"
+  end
+
+  create_table "team_participants", id: false, force: true do |t|
+    t.integer "team_id"
+    t.integer "participant_id"
+    t.string  "participant_name"
+    t.string  "participant_firstname"
+    t.string  "type"
+  end
+
   create_table "teams", force: true do |t|
     t.string   "name"
     t.string   "homeColor"
@@ -171,14 +236,6 @@ ActiveRecord::Schema.define(version: 20140110151135) do
   end
 
   add_index "teams", ["club_id"], name: "index_teams_on_club_id", using: :btree
-
-  create_table "tests", force: true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "timekeepers", force: true do |t|
     t.string   "login"
@@ -193,8 +250,8 @@ ActiveRecord::Schema.define(version: 20140110151135) do
   create_table "users", force: true do |t|
     t.string   "nom"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "win_lose", id: false, force: true do |t|

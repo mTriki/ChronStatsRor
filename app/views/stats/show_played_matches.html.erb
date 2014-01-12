@@ -10,13 +10,13 @@
     </thead>
     <tbody>
     <% @matches.each do | match |
-      if match.date < Time.now and match.championship_id == @championship.id %>
+      if match.date < Time.now %>
       <tr>
         <td>
           <%= match.date.to_formatted_s(:short) %>
         </td>
         <td>
-          <a href=""><%= match.team1_name %> vs <%= match.team2_name %></a>
+            <%= link_to "#{match.team1_name} vs #{match.team2_name}", controller: 'stats', action: 'show_match', match_id: match.match_id %>
         </td>
         <td>
           <%= match.homeScore %> - <%= match.awayScore%>

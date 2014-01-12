@@ -6,6 +6,7 @@ FirstApp::Application.routes.draw do
   get '/:championship_name/matches/played', :to => 'stats#show_played_matches'
   get '/:championship_name/matches/future', :to => 'stats#show_future_matches'
   get '/:championship_name/teams/:team_name', :to => 'stats#show_team'
+  get '/:championship_name/matches/:match_id', :to => 'stats#show_match'
 
   root :to => 'stats#show_home'
 

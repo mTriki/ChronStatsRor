@@ -18,14 +18,13 @@
     <tbody>
     <%
       i = 1
-      @ranking.each_with_index do | r | 
-        if r.championship_id == @championship.id %>
+      @ranking.each_with_index do | r |  %>
       <tr>
         <td>
           <%= i %>
         </td>
         <td>
-          <%= r.team_name %>
+          <%= link_to r.team_name, controller: "stats", action: "show_team", championship_name: @championship.name, team_name: r.team_name %>
         </td>
         <td>
           <%= r.score %>
@@ -54,7 +53,6 @@
       </tr>
     <%
           i = i + 1
-        end
       end %>
     </tbody>
   </table>

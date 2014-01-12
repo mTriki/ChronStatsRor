@@ -23,7 +23,11 @@
       <div id="menu">
         <ul class="menu-first-level">
           <li class="home-button">
-            <a href="/"><%= image_tag "home.jpg", :alt => "Accueil" %></a>
+            <%= 
+            link_to root_path do
+              image_tag "home.jpg", :alt => "Accueil"
+            end
+            %>
           </li>
           <% championships.each do |championship| %>
             <li>
@@ -35,13 +39,13 @@
           <span class="info"><%= championship.name %></span>
           <ul class="menu-second-level" id="mnu_<%= championship.name.delete(" ") %>">
             <li>
-              <a href="/<%= championship.name %>/ranking">Classement</a>
+              <%= link_to "Classement", controller: "stats", action: "show_ranking", championship_name: championship.name %>
             </li>
             <li>
-              <a href="/<%= championship.name %>/matches/played">Matchs joués</a>
+              <%= link_to "Matchs joués", controller: "stats", action: "show_played_matches", championship_name: championship.name %>
             </li>
             <li>
-              <a href="/<%= championship.name %>/matches/future">Matchs à venir</a>
+              <%= link_to "Matchs à venir", controller: "stats", action: "show_future_matches", championship_name: championship.name %>
             </li>
             <li>
               <a href="#" id="link_equipes_<%= championship.name.delete(" ") %>">Equipes</a>
@@ -51,7 +55,11 @@
             <% chTeams.each do | team | 
               if team.championship_name == championship.name %>
                 <li>
-                  <a href="/<%= championship.name %>/teams/<%= team.team_name %>"><%= image_tag "#{team.team_name}.png", :alt => "Logo de l'équipe #{team.team_name}" %></a>
+                  <%= 
+                  link_to controller: "stats", action: "show_team", championship_name: championship.name, team_name: team.team_name  do
+                    image_tag "#{team.team_name}.png", :alt => "Logo de l'équipe #{team.team_name}"
+                  end
+                  %>
                 </li>
             <% end
             end %>

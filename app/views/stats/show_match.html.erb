@@ -1,0 +1,103 @@
+<span class="title-page">Hommes 3ème division - Match Montcherand vs HC Vevey</span>
+<div class="inner_contennt">
+  <div class="summary">
+  <%= "Date: #{@match.date.to_formatted_s(:short)}" %><br/>
+  <%= link_to controller: 'stats', action: 'show_team', championship_name: @championship.name, team_name: @match.team1_name do 
+    image_tag "#{@match.team1_name}.png", :alt => "Logo de l'équipe #{@match.team1_name}"
+  end %>
+  VS
+  <%= link_to controller: 'stats', action: 'show_team', championship_name: @championship.name, team_name: @match.team1_name do 
+    image_tag "#{@match.team2_name}.png", :alt => "Logo de l'équipe #{@match.team2_name}"
+  end %> 
+<br/>
+  <%= "#{@match.team2_name} #{@match.homeScore}:#{@match.awayScore} #{@match.team2_name}" %><br/>
+ <br/>
+ <%= "#{@coach1.name} #{@coach1.firstname}" if not @coach1.nil? %> /   <%= "#{@coach2.name} #{@coach2.firstname}" if not @coach2.nil? %>
+ </div>
+ <br />
+  <%= "Arbitre de la rencontre: #{@match.referee_name} #{@match.referee_firstname}"%><br/>
+    <table class="datagrid">
+     <thead> 
+      <tr>
+        <th class="name"><%= "Joueurs #{@match.team1_name}" %></th>
+        <th>Buts</th>
+        <th>2'</th>
+        <th>Cartons</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @team1.each do | player | %>
+        <tr>
+          <td>
+            <%= player.participant_name %> <%= player.participant_firstname %>
+          </td>
+          <td>
+            <%= @players1.find_by_participant_id(player.participant_id).goal if not @players1.find_by_participant_id(player.participant_id).nil? %>
+          </td>
+          <td>
+            <%= @players1.find_by_participant_id(player.participant_id).foul if not @players1.find_by_participant_id(player.participant_id).nil? %>
+          </td>
+          <td>
+            Non
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br/>     
+  <table class="datagrid">
+     <thead> 
+      <tr>
+        <th class="name"><%= "Joueurs #{@match.team2_name}" %></th>
+        <th>Buts</th>
+        <th>2'</th>
+        <th>Cartons</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @team2.each do | player | %>
+        <tr>
+          <td>
+            <%= player.participant_name %> <%= player.participant_firstname %>
+          </td>
+          <td>
+            <%= @players2.find_by_participant_id(player.participant_id).goal if not @players2.find_by_participant_id(player.participant_id).nil? %>
+          </td>
+          <td>
+            <%= @players2.find_by_participant_id(player.participant_id).foul if not @players2.find_by_participant_id(player.participant_id).nil? %>
+          </td>
+          <td>
+            Non
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br/><br/>
+  <span class="title-page">Faits de matchs</span>
+  <table class="datagrid">
+     <thead> 
+      <tr>
+        <th>Temps</th>
+        <th>Joueur</th>
+        <th>Fait</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @facts.each do | fact | %>
+        <tr>
+          <td>
+            <%= fact.fact_time.strftime("%H:%M:%S") %>
+          </td>
+          <td>
+            <%= fact.participant_name %> <%= fact.participant_firstname %>
+          </td>
+          <td>
+            <%= fact.fact_type %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</center>
+</div>

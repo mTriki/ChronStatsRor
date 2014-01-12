@@ -1,8 +1,9 @@
 <span class="title-page">
-	HC Moudon
-    <img clss="logo_team" src="images/equipe1.png" alt="logo HC Moudon"/>
+  <%= image_tag "#{@team.name}.png", :alt => "Logo de l'équipe #{@team.name}" %>
+	<%= @team.name %>
 </span>
 <div class="inner_contennt">
+  <%= "Coach: #{@coach.firstname} #{@coach.name}" if not @coach.nil? %>
   <table class="datagrid">
      <thead> 
       <tr>
@@ -10,26 +11,41 @@
         <th>Buts</th>
         <th>But 7m</th>
         <th>Avert.</th>
-        <th>2'</th>
-        <th>2ème 2'</th>
-        <th>3ème 2'</th>
         <th>Total 2'</th>
-        <th>Exp.</th>
-        <th>Disqu.</th>
+        <th>Carton rouge</th>
         <th>Matchs</th>
         <th>Buts/match</th>
-
-
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Crescenzio Fabio</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <td>Fresco Alain</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-         <td>Mohamed Triki</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-         <td>Therisod Romain</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <td>Walpen Laurian</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-
+    <% @players.each do | player | %>
+        <tr>
+          <td>
+            <%= player.participant_name %> <%= player.participant_firstname %> 
+          </td>
+          <td>
+            <%= player.goal %> 
+          </td>
+          <td>
+            <%= player.penalty %> 
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            <%= player.foul %> 
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            
+          </td>
+        </tr>
+    <% end %>
     </tbody>
   </table>
 </div>
