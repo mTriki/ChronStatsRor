@@ -17,6 +17,17 @@ class Participant < ActiveRecord::Base
 		end
 	end
 
+	def path
+		case self.type
+		when "Coach"
+			"/coaches"
+		when "Referee"
+			"/referees"
+		when "Player"
+			"/players"
+		end
+		
+	end
 
     def display_name
     	"#{self.name} #{self.firstname}"

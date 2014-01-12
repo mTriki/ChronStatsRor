@@ -1,6 +1,6 @@
-<h1>Modifier un <%= @participant.name_FR %</h1>
+<h1>Modifier un <%= @participant.name_FR %></h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Affichier', @participant %> |
-<%= link_to 'Retour', participants_path %>
+<%= link_to 'Retour', @participant.path %>
