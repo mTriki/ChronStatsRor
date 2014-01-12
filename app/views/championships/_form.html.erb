@@ -23,7 +23,7 @@
     <%= f.label "Championnat" %><br>
     <%= collection_select(:championship, :season_id, Season.all, :id , :name) %>
   </div>
-  <div class="actions">
+  <div class="actions btn">
     <%= f.submit %>
   </div>
 <% end %>

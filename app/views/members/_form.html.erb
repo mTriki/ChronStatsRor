@@ -39,7 +39,7 @@
     <%= f.label "Fédération" %><br>
     <%= collection_select(:member, :federation_id, Federation.all, :id , :name) %>
   </div>
-  <div class="actions">
+  <div class="actions btn">
     <%= f.submit %>
   </div>
 <% end %>

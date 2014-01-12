@@ -27,7 +27,7 @@
     <%= f.label "Club" %><br>
     <%= collection_select(:timekeeper, :club_id, Club.all, :id , :name)%>
   </div>
-  <div class="actions">
+  <div class="actions btn">
     <%= f.submit %>
   </div>
 <% end %>

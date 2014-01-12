@@ -1,15 +1,17 @@
-<h1>Connexion</h1>
+<div align="center">
+  <h1>Connexion</h1>
 
-<%= form_for(:session, :url => sessions_path) do |f| %>
-  <div class="field">
-    <%= f.label :login, "Login" %><br />
-    <%= f.text_field :login %>
-  </div>
-  <div class="field">
-    <%= f.label :password, "Mot de passe" %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit "S'identifier" %>
-  </div>
-<% end %>
+  <%= form_for(:session, :url => sessions_path) do |f| %>
+    <div class="field">
+      <%= f.label :login, "Nom d'utilisateur" %><br />
+      <%= f.text_field :login %>
+    </div>
+    <div class="field">
+      <%= f.label :password, "Mot de passe" %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions btn">
+      <%= f.submit "S'identifier" %>
+    </div>
+  <% end %>
+</div>
