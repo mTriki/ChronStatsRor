@@ -5,10 +5,20 @@ class FederationsController < ApplicationController
   # GET /federations
   def index
     @federations = Federation.all
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @federations }
+    end
   end
 
   # GET /federations/1
   def show
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @federation }
+    end
   end
 
   # GET /federations/new

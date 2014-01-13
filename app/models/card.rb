@@ -1,2 +1,2 @@
-class Card < Fact
+class YellowCard < Fact
 end

@@ -5,10 +5,20 @@ class ClubsController < ApplicationController
   # GET /clubs
   def index
     @clubs = Club.all
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @clubs }
+    end
   end
 
   # GET /clubs/1
   def show
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @club }
+    end
   end
 
   # GET /clubs/new
